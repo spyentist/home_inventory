@@ -1,0 +1,40 @@
+{% load static %}   
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PIMS|HOME</title>
+    <link rel="stylesheet" href="{% static 'pims/normalize.css' %}">
+    <link rel="stylesheet" href="{% static 'pims/pims_small.css' %}">
+    <link rel="stylesheet" href="{% static 'pims/pims_medium.css' %}">
+    <link rel="stylesheet" href="{% static 'pims/pims_large.css' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'pims/favicon.ico' %}">
+    <script type="text/javascript" src="{% static 'pims/main.js' %}"></script>
+  </head>
+<body onload="doInputOutput()">
+    <header>
+      <h1>PIMS</h1>
+      <nav>
+        <ul class="navigation" id="navigation">
+            <li class="menu_icon"><a href="javascript:void(0);" onclick="adaptiveMenu()">&#9776;</a></li>
+            <li class="links"><a href="{% url 'pims:index' %}">Home</a></li>
+            <li class="links"><a href="{% url 'pims:item_list' %}">All Items</a></li>
+            <li class="links"><a href="#">Coming Soon!</a></li>
+        </ul>
+    </nav> 
+    </header>
+
+
+    <main>
+        {% block aside %}
+        {% endblock %}
+        {% block main %}
+        {% endblock %}
+    </main>
+
+    <footer>
+        &copy; <span id="year"></span> &starf; <span>PIMS</span> &starf; <span id="curdate"></span>
+    </footer>
+</body>
+</html>

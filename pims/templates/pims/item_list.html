@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block header %}
+    <h2><a href="{% url 'pims:index' %}">Home</a></h2>
+{% endblock %}
+
+{% block main %}
+<input type="text" id="myInput" onkeyup="listSearch()" placeholder="Search for items..">
+
+    <ul id='tableList'>
+        {% for items in item %}
+            <li><a href='#'>{{ items.name }} | {{ items.quantity }}</a></li>
+        {% endfor %}
+    </ul>
+
+{% endblock %}

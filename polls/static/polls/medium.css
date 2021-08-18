@@ -1,0 +1,143 @@
+:root {
+    --background-color: #BEDCE2;
+    --text-color: #4D7298;
+    --accent1-color: #E2B48E;
+    --link-color: #2D3142;
+}
+
+
+
+@media only screen and (min-width: 32.5em) {
+
+/* HTML Selectors */
+
+article {
+    position: relative;
+    height: 250px;
+    padding-bottom: 3em;
+}
+
+article h2 {
+    position: absolute;
+}
+
+article h4 {
+    display: none;
+}
+
+article img {
+    position:absolute;
+    width: 40%;
+    top: 2em;
+    right:2em;
+}
+
+article p {
+    position: absolute;
+    top: 3em;
+    max-width: 50%;
+}
+
+header h1 {
+    font-size: 3.5em;
+}
+
+header h3 {
+    font-size: 2em;
+}
+
+iframe {
+    display:block;
+}
+
+nav ul {
+    margin: 0 auto;
+}
+
+main {
+    width: 80%;
+}
+
+/* Class Selectors */
+
+.service {
+    position: absolute;
+    top: 0px;
+    left: 15px;
+}
+
+.service2 {
+    position: absolute;
+    top: 40px;
+    left: 50px;
+}
+
+.contact {
+    height: 300px;
+}
+
+.fore_contain{
+    display: block;;
+}
+
+.forecast {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+
+.fore_contain h3 {
+    text-align: center;
+    display: block;
+}
+
+.day {
+    grid-row: 2/3;
+    background-color: var(--accent1-color);
+    height: 5em;
+    width: 5em;
+    justify-self: center;
+    align-self: center;
+}
+
+.hero {
+    height:400px;
+}
+
+.hero img {
+    height:100%;
+}
+
+.navigation {
+    display: flex;
+    justify-content: center;
+}
+
+.navigation li {
+    display: block; /* needed because of state in small view */
+    flex: 1 1 100%;
+}
+
+.navigation li a {
+    color: var(--link-color);
+    text-align: center;
+}
+
+.navigation li:first-child {
+    display: none;
+}
+
+.weatherBlock {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+
+
+
+
+
+
+
+
+
+}

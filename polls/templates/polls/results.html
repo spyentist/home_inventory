@@ -1,0 +1,56 @@
+{% load static %}    
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Results!</title>
+    <link rel="stylesheet" href="{% static 'polls/small.css' %}">
+</head>
+
+<body>
+    <header>
+        <h1>Let's see the numbers!</h1>
+    </header>
+
+    <main>
+        <h2>{{ question.question_text }}</h2>
+
+        <ul>
+            {% for choice in question.choice_set.all %}
+            <li>{{ choice.Choice_text }} -- {{ choice.votes }} vote{{ choice.votes|pluralize }}</li>
+            {% endfor %}
+        </ul>
+
+        <a href="{% url 'polls:detail' question.id %}">Do you want to vote again?</a>
+    </main>
+
+    <footer>
+        &copy; <span id="year"> </span> &starf; PIMS &starf; <span id="curdate"></span>
+    </footer>
+
+</body>
+<script>
+    let date = new Date();
+    let weekDays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday", "Monday",
+        "Tuesday", "Wednesday", "Thursday"
+    ];
+    let weekDay = weekDays[date.getDay()];
+    let dayNum = date.getDate();
+    let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October",
+        "November", "December"
+    ];
+    let month = months[date.getMonth()];
+    let year = date.getUTCFullYear();
+    let today = weekDay;
+
+    let display = weekDay + ", " + dayNum + " " + month + " " + year;
+
+
+    document.getElementById("curdate").innerHTML = display;
+    document.getElementById("year").innerHTML = year;
+</script>
+
+</html>

@@ -1,0 +1,49 @@
+/* :root {
+    --background-color: #0C3246;
+    --text-color: #B44418;
+    --accent1-color: #0C3246;
+    --link-color: #9DAD71;
+    --accent2-color: #FCEFEF;
+} */
+
+
+@media screen and (min-width: 32.5em) {
+
+
+    /*TODO Check why the medium CSS is being applied in the small frame */
+    .vert-align {
+        position:absolute;
+        writing-mode: vertical-rl;
+        text-orientation: upright;
+        font-size: 10em;
+        margin: 0;
+    
+    }
+
+    .grid {
+        display:grid;
+        grid-template-columns: 1fr 5fr;
+    }
+
+    .block-main {
+        grid-column: 2/3;
+    }
+
+    .navigation {
+        flex-direction: row;
+        justify-content: space-around;
+    }
+    
+    .navigation li {
+        display: flex;
+    }
+    
+    .navigation li:first-child {
+        display: none;
+    }
+    
+    nav {
+        align-content: center;
+    }
+
+}
