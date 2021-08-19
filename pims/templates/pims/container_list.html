@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block header %}
+{% endblock %}
+
+{% block main %}
+<!-- <input type="text" id="myInput" onkeyup="listSearch()" class="input_text" placeholder="Search for items.."/> -->
+<div class="form__group">
+<input type="text" class="form__field" placeholder="Seach for containers..." name="search" onkeyup="listSearch()" id="myInput"/>
+<label for="search" class="form__label">Search for containers...</label>
+</div>
+    <ul id='tableList'>
+        {% for containers in container %}
+            <li><a href='#'>{{ containers.location }}-{{ containers.row_letter }}-{{ containers.column_number }} </a></li>
+        {% endfor %}
+    </ul>
+
+{% endblock %}

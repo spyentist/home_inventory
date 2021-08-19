@@ -43,7 +43,7 @@ footer {
 
 header {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: .85fr 1.15fr;
 }
 
 html {
@@ -53,7 +53,7 @@ html {
 h1 {
     font-family: var(--heading-font);
     color: var(--heading-color);
-    font-size: 3em;
+    font-size: 2em;
     text-align: center;
 }
 

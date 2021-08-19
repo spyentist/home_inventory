@@ -16,19 +16,25 @@ class IndexView(generic.ListView):
     def get_queryset(self):
         return container.objects.order_by('row_letter')
 
-
-
-#TODO Fix the detail view. The items show up sparatically, the container name shows up when the context object name and function are commented out. 
-
 class itemListView(generic.ListView):
-    template_name = 'pims/detail.html'
+    template_name = 'pims/item_list.html'
     model = item
 
     context_object_name = 'item'
     def get_queryset(self):
         return item.objects.all()
+# * Above views are working as desired (8/18)
 
+class containerListView(generic.ListView):
+    template_name = "pims/container_list"
+    model = container
 
-class contentsListView(generic.CreateView):
-    template_name = "pims/item_list.html"
+    context_object_name = 'container'
+    def get_queryset(self):
+        return container.objects.all().order_by('row_letter')
+
+class contentsView(generic.CreateView):
+    template_name = "pims/cont_details.html"
     model = item
+
+
