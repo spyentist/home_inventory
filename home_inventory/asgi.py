@@ -1,5 +1,5 @@
 """
-ASGI config for home_invetory project.
+ASGI config for home_inventory project.
 
 It exposes the ASGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.asgi import get_asgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'home_invetory.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'home_inventory.settings')
 
 application = get_asgi_application()
