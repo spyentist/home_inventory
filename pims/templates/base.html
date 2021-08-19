@@ -9,18 +9,21 @@
     <link rel="stylesheet" href="{% static 'pims/pims_small.css' %}">
     <link rel="stylesheet" href="{% static 'pims/pims_medium.css' %}">
     <link rel="stylesheet" href="{% static 'pims/pims_large.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200&family=Montserrat:wght@200&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" sizes="16x16" href="{% static 'pims/favicon.ico' %}">
     <script type="text/javascript" src="{% static 'pims/main.js' %}"></script>
   </head>
 <body onload="doInputOutput()">
     <header>
-      <h1>PIMS</h1>
+      <a href="{% url 'pims:index' %}"><h1>PIMS</h1></a>
       <nav>
         <ul class="navigation" id="navigation">
             <li class="menu_icon"><a href="javascript:void(0);" onclick="adaptiveMenu()">&#9776;</a></li>
             <li class="links"><a href="{% url 'pims:index' %}">Home</a></li>
             <li class="links"><a href="{% url 'pims:item_list' %}">All Items</a></li>
-            <li class="links"><a href="#">Coming Soon!</a></li>
+            <li class="links"><a href="#">Containers</a></li>
+            <li class="links"><a href="#">Edit Items</a></li>
+            <li class="links"><a href="#">Add Items</a></li>
         </ul>
     </nav> 
     </header>

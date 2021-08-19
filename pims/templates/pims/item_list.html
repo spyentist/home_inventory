@@ -1,12 +1,14 @@
 {% extends "base.html" %}
 
 {% block header %}
-    <h2><a href="{% url 'pims:index' %}">Home</a></h2>
 {% endblock %}
 
 {% block main %}
-<input type="text" id="myInput" onkeyup="listSearch()" placeholder="Search for items..">
-
+<!-- <input type="text" id="myInput" onkeyup="listSearch()" class="input_text" placeholder="Search for items.."/> -->
+<div class="form__group">
+<input type="text" class="form__field" placeholder="Seach for items..." name="search" onkeyup="listSearch()" id="myInput"/>
+<label for="search" class="form__label">Search for Items...</label>
+</div>
     <ul id='tableList'>
         {% for items in item %}
             <li><a href='#'>{{ items.name }} | {{ items.quantity }}</a></li>

@@ -1,8 +1,12 @@
 @media only screen and (min-width: 64em) {
 
 
+    .icon_group {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
 
-
-
+    .form__group {
+        width: 20%;
+    }
 }
 

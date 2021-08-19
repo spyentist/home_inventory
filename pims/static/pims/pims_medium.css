@@ -7,17 +7,23 @@
 } */
 
 
-@media screen and (min-width: 32.5em) {
+@media screen and (min-width: 40em) {
 
 
-    /*TODO Check why the medium CSS is being applied in the small frame */
+    header {
+        grid-template-columns: .3fr 1.7fr;
+    }
+
+    nav {
+        align-content: center;
+    }
+
     .vert-align {
         position:absolute;
         writing-mode: vertical-rl;
         text-orientation: upright;
         font-size: 10em;
-        margin: 0;
-    
+        margin: 0 auto;
     }
 
     .grid {
@@ -32,6 +38,7 @@
     .navigation {
         flex-direction: row;
         justify-content: space-around;
+        flex-wrap: wrap;
     }
     
     .navigation li {
@@ -42,8 +49,13 @@
         display: none;
     }
     
-    nav {
-        align-content: center;
+
+
+    .icon_group {
+        grid-template-columns: 1fr 1fr 1fr;
     }
 
+    .form__group {
+        width: 30%;
+    }
 }

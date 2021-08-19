@@ -1,3 +1,14 @@
+
+@import url(//db.onlinewebfonts.com/c/9d0967bfe19937b123d26cde0ba6a217?family=Norwester);
+
+@font-face {
+    font-family: "Norwester";
+    src: url("//db.onlinewebfonts.com/t/9d0967bfe19937b123d26cde0ba6a217.eot");
+    src: url("//db.onlinewebfonts.com/t/9d0967bfe19937b123d26cde0ba6a217.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/9d0967bfe19937b123d26cde0ba6a217.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/9d0967bfe19937b123d26cde0ba6a217.woff") format("woff"), url("//db.onlinewebfonts.com/t/9d0967bfe19937b123d26cde0ba6a217.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/9d0967bfe19937b123d26cde0ba6a217.svg#Norwester") format("svg");
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200&display=swap');
 :root {
     --background-color: #0C3246;
     --text-color: #B44418;
@@ -5,26 +16,25 @@
     --accent1-color: #0C3246;
     --link-color: #9DAD71;
     --accent2-color: #FCEFEF;
+    --font: "Dosis", sans-serif;
+    --heading-font: "Norwester";
 }
 
-@import url(//db.onlinewebfonts.com/c/9d0967bfe19937b123d26cde0ba6a217?family=Norwester);
-
-@font-face {font-family: "Norwester"; src: url("//db.onlinewebfonts.com/t/9d0967bfe19937b123d26cde0ba6a217.eot"); src: url("//db.onlinewebfonts.com/t/9d0967bfe19937b123d26cde0ba6a217.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/9d0967bfe19937b123d26cde0ba6a217.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/9d0967bfe19937b123d26cde0ba6a217.woff") format("woff"), url("//db.onlinewebfonts.com/t/9d0967bfe19937b123d26cde0ba6a217.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/9d0967bfe19937b123d26cde0ba6a217.svg#Norwester") format("svg"); }
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200&family=Nunito:wght@200&display=swap');
 /* HTML selectors */
-    
+
 
 a {
-    color:var(--link-color);
+    color: var(--link-color);
     text-decoration: none;
-    font-family: "Montserrat", sans-serif;
-    font-size: 1.5em;
+    font-family: var(--font);
+    font-size: 2.5em;
+    font-weight: 100;
 }
 
 footer {
     background-color: var(--accent1-color);
-    color:var(--text-color);
-    display:flex;
+    color: var(--text-color);
+    display: flex;
     flex-wrap: wrap;
     height: 3em;
     justify-content: center;
@@ -33,7 +43,7 @@ footer {
 
 header {
     display: grid;
-    grid-template-columns: .85fr 1.15fr;
+    grid-template-columns: 1fr 1fr;
 }
 
 html {
@@ -41,22 +51,20 @@ html {
 }
 
 h1 {
-    font-family: "Norwester";
+    font-family: var(--heading-font);
     color: var(--heading-color);
     font-size: 3em;
+    text-align: center;
 }
 
 h2 {
     font-size: 3em;
     color: var(--heading-color);
     margin: 0 auto;
-    font-family: 'Nunito', sans-serif;
     text-transform: Uppercase;
-    font-weight: 100;
 }
 
 main {
-    padding: 3em 0;
     margin: 0 auto;
     text-align: center;
 }
@@ -67,7 +75,7 @@ nav ul {
 }
 
 nav ul li a {
-    padding: .5em 0 .5em 0;
+    padding: .5em .25em;
 }
 
 span {
@@ -84,11 +92,14 @@ ul {
 
 /* Class Selectors */
 
-.links a, .menu_icon a {
-    display:block;
-    width:100%;
+
+.links a,
+.menu_icon a {
+    display: block;
+    width: 100%;
     background-color: var(--accent1-color);
     text-align: center;
+
 }
 
 .menu_icon {
@@ -98,7 +109,10 @@ ul {
 .navigation {
     display: flex;
     list-style: none;
+    height: 100%;
     background-color: var(--accent1-color);
+    justify-content: center;
+    align-content: center;
 }
 
 .navigation a {
@@ -124,11 +138,86 @@ ul {
     display: block;
 }
 
+.sub_icons {
+    height: 225px;
+    width: 100%;
+    align-content: center;
+    /* margin-bottom: 1em; */
+}
 
+.sub_icons:nth-child(odd) {
+    background-color: darkorange;
+}
 
+.sub_icons:nth-child(even) {
+    background-color: black;
+}
 
+.icon_group {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1em;
+}
 
 
 /* ID Selectors */
 
 
+.form__group {
+    position: relative;
+    padding: 15px 0 0;
+    margin-top: 10px;
+    width: 50%;
+    margin: 0 auto;
+}
+
+
+.form__field {
+    font-family: inherit;
+    width: 100%;
+    border: 0;
+    border-bottom: 2px solid gray;
+    outline: 0;
+    font-size: 1.3rem;
+    color: white;
+    padding: 7px 0;
+    background: transparent;
+    transition: border-color 0.2s;
+}
+
+.form__field:placeholder-shown~.form__label {
+    font-size: 1.3rem;
+    cursor: text;
+    top: 20px;
+}
+
+.form__field::placeholder {
+    color: transparent;
+}
+
+.form__label {
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.2s;
+    font-size: 1rem;
+    color: gray;
+}
+
+.form__field:focus {
+    padding-bottom: 6px;
+    font-weight: 700;
+    border-width: 3px;
+    border-image: linear-gradient(to right, #11998e, #38ef7d);
+    border-image-slice: 1;
+}
+
+.form__field:focus.form__label {
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.2s;
+    font-size: 1rem;
+    color: #11998e;
+    font-weight: 700;
+}
