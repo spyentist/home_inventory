@@ -7,8 +7,9 @@
 </div>
     <ul id='tableList'>
         {% for items in item %}
-            <li><a href='#'>{{ items.name }} | {{ items.quantity }}</a></li>
+            <li><a href='#'>{{ items.name }} | {{ items.quantity }} {{items.row_letter}}</a></li>
         {% endfor %}
     </ul>
 
+</div>
 {% endblock %}

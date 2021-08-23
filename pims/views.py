@@ -12,9 +12,6 @@ class IndexView(generic.ListView):
     template_name = 'pims/index.html'
     model = container
 
-    context_object_name = 'containers'
-    def get_queryset(self):
-        return container.objects.order_by('row_letter')
 
 class itemListView(generic.ListView):
     template_name = 'pims/item_list.html'
@@ -23,7 +20,6 @@ class itemListView(generic.ListView):
     context_object_name = 'item'
     def get_queryset(self):
         return item.objects.all()
-# * Above views are working as desired (8/18)
 
 class containerListView(generic.ListView):
     template_name = "pims/container_list"
@@ -32,9 +28,21 @@ class containerListView(generic.ListView):
     context_object_name = 'container'
     def get_queryset(self):
         return container.objects.all().order_by('row_letter')
+# * Above views are working as desired
 
-class contentsView(generic.CreateView):
-    template_name = "pims/cont_details.html"
+
+class contentsView(generic.ListView):
+    template_name = "pims/contents.html"
     model = item
 
+    def get_queryset(self):
+        return item.objects.all()
 
+
+class testView(generic.DetailView):
+    model = item
+    template_name = "pims/test.html"
+
+    context_object_name = "item"
+    def get_queryset(self):
+        return item.objects.all()
