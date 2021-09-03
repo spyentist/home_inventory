@@ -40,7 +40,8 @@ class contentsView(generic.ListView):
 
     context_object_name = 'container'
     def get_queryset(self):
-        return container.objects.filter(pk=1)
+        newContainer =  container.objects.filter(pk=1)
+        return newContainer.items.all()
 
 
 class testView(generic.DetailView):

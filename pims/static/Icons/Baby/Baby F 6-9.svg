@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="48"
+   height="48"
+   viewBox="0 0 12.7 12.7"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.1 (c68e22c387, 2021-05-23)"
+   sodipodi:docname="Baby F 6-9.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#505050"
+     bordercolor="#ffffff"
+     borderopacity="1"
+     inkscape:pageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     units="px"
+     showguides="true"
+     inkscape:guide-bbox="true"
+     inkscape:zoom="11.313708"
+     inkscape:cx="21.345787"
+     inkscape:cy="20.019962"
+     inkscape:window-width="1920"
+     inkscape:window-height="1057"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1">
+    <inkscape:grid
+       type="xygrid"
+       id="grid87" />
+    <sodipodi:guide
+       position="6.35,1.2236979"
+       orientation="1,0"
+       id="guide89" />
+  </sodipodi:namedview>
+  <defs
+     id="defs2" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <g
+       id="g7513"
+       transform="translate(-0.54211074,0.09105835)">
+      <path
+         style="fill:none;stroke:#ffffff;stroke-width:0.442732;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 5.9462167,11.715623 c 0,0 -0.00332,-0.754034 -0.8630343,-1.52846 C 4.2234599,9.4127378 3.5765533,9.5080836 3.5765533,9.5080836 V 4.1028788 L 2.9109876,4.6140632 1.7522154,2.4713494 3.3575612,1.1368956 5.1996661,0.67707485 c 0,0 0.5267065,1.09169565 1.6924446,1.09169565 1.1657382,0 1.6924447,-1.09169565 1.6924447,-1.09169565 L 10.42666,1.1368956 12.032006,2.4713494 10.873234,4.6140632 10.207668,4.1028788 v 5.4052048 c 0,0 -0.6469065,-0.095346 -1.5066289,0.6790794 -0.8597167,0.774426 -0.8630344,1.52846 -0.8630344,1.52846 h -0.945894 z"
+         id="path857"
+         sodipodi:nodetypes="czccccccccccccczccc" />
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:3.52778px;line-height:0.55;font-family:sans-serif;letter-spacing:-0.264583px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.264583;stroke-opacity:1"
+       x="3.8311706"
+       y="5.9376922"
+       id="text7015"><tspan
+         sodipodi:role="line"
+         id="tspan7013"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:Montserrat;-inkscape-font-specification:Montserrat;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.264583;stroke-opacity:1"
+         x="3.8311706"
+         y="5.9376922">6-9</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.58611px;line-height:1.25;font-family:Verdana;-inkscape-font-specification:Verdana;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="5.0355239"
+       y="9.822155"
+       id="text14796"><tspan
+         sodipodi:role="line"
+         id="tspan14794"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.58611px;font-family:Mont;-inkscape-font-specification:Mont;fill:#ffffff;fill-opacity:1;stroke-width:0.264583"
+         x="5.0355239"
+         y="9.822155">f</tspan></text>
+  </g>
+</svg>
