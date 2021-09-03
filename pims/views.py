@@ -19,7 +19,7 @@ class itemListView(generic.ListView):
 
     context_object_name = 'item'
     def get_queryset(self):
-        return item.objects.all()
+        return item.objects.all().order_by('name')
 
 class containerListView(generic.ListView):
     template_name = "pims/container_list"
@@ -31,18 +31,18 @@ class containerListView(generic.ListView):
 # * Above views are working as desired
 
 
+import logging
+logger = logging.getLogger(__name__)
+
 class contentsView(generic.ListView):
     template_name = "pims/contents.html"
-    model = item
+    model = container
 
+    context_object_name = 'container'
     def get_queryset(self):
-        return item.objects.all()
+        return container.objects.filter(pk=1)
 
 
 class testView(generic.DetailView):
-    model = item
     template_name = "pims/test.html"
-
-    context_object_name = "item"
-    def get_queryset(self):
-        return item.objects.all()
+    model = container

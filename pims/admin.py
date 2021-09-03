@@ -7,7 +7,7 @@ from .models import *
 
 class containerAdmin(admin.ModelAdmin):
     fieldsets = [
-        (None, {'fields': ['']})
+        (None, {'fields': ['item']})
     ]
 
 admin.site.register(season)

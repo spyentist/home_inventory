@@ -5,11 +5,16 @@
 <input type="text" class="form__field" placeholder="Seach for items..." name="search" onkeyup="listSearch()" id="myInput"/>
 <label for="search" class="form__label">Search for Items...</label>
 </div>
+
+{% if container %}
     <ul id='tableList'>
-        {% for items in item %}
-            <li><a href='#'>{{ items.name }} | {{ items.quantity }} {{items.row_letter}}</a></li>
+        {% for contents in container %}
+            <li><a href='#'>{{ contents.name }} | {{ contents.quantity }} {{contents.row_letter}}{{contents.column_number}}</a></li>
         {% endfor %}
     </ul>
+{% else %}
+<h1>NOT WORKING ATM</h1>
+{% endif %}
 
 </div>
 {% endblock %}
