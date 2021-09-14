@@ -9,7 +9,7 @@
 {% if container %}
     <ul id='tableList'>
         {% for contents in container %}
-            <li><a href='#'>{{ contents.name }} | {{ contents.quantity }} {{contents.row_letter}}{{contents.column_number}}</a></li>
+            <li><a href="{% url 'pims:editItem' contents.id %}">{{ contents.name }} | {{ contents.quantity }} {{contents.row_letter}}{{contents.column_number}}</a></li>
         {% endfor %}
     </ul>
 {% else %}

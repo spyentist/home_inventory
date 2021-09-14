@@ -6,7 +6,11 @@ from django.views import generic
 
 # Create your views here.
 
-from .models import item, container
+from .models import item, container, season
+
+import logging
+logger = logging.getLogger(__name__)
+
 
 class IndexView(generic.ListView):
     template_name = 'pims/index.html'
@@ -28,22 +32,26 @@ class containerListView(generic.ListView):
     context_object_name = 'container'
     def get_queryset(self):
         return container.objects.all().order_by('row_letter')
-# * Above views are working as desired
-
-
-import logging
-logger = logging.getLogger(__name__)
 
 class contentsView(generic.ListView):
     template_name = "pims/contents.html"
     model = container
-
     context_object_name = 'container'
     def get_queryset(self):
-        newContainer =  container.objects.filter(pk=1)
+        newContainer = container.objects.get(id=self.kwargs['pk'])
         return newContainer.items.all()
 
+# * Above views are working as desired
 
-class testView(generic.DetailView):
-    template_name = "pims/test.html"
-    model = container
+
+class editItem(generic.UpdateView):
+    template_name = "pims/editItems.html"
+    model = item
+    context_object_name = 'item'
+    fields = {
+        
+    }
+
+
+class seasonView(generic.ListView):
+    model = season

@@ -10,6 +10,7 @@ urlpatterns = [
     path('allItems/', views.itemListView.as_view(), name='item_list'),
     path('contents/<int:pk>', views.contentsView.as_view(), name='contents'),
     path('allcontainers/', views.containerListView.as_view(), name='container_list'),
-    # path('season/', views.views, name='season'),
+    path('season/', views.seasonView.as_view(), name='season'),
+    path('editItem/<int:pk>', views.editItem.as_view(), name='editItem'),
     # path('test/<int:pk>', views.testView.as_view(), name='test'), 
 ]
