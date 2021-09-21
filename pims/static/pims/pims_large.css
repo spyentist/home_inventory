@@ -8,5 +8,8 @@
     .form__group {
         width: 20%;
     }
+    ul {
+        margin: 0;
+    }
 }
 

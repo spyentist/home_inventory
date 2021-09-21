@@ -138,7 +138,7 @@ ul {
     display: block;
 }
 
-.sub_icons {
+.sub_icons, .sub_icons.christmas, .sub_icons.halloween, .sub_icons.thanksgiving, .sub_icons.valentines {
     height: 225px;
     width: 100%;
     align-content: center;
@@ -146,13 +146,55 @@ ul {
 }
 
 .sub_icons:nth-child(odd) {
-    background-color: darkorange;
+    background-color: white;
 }
 
 .sub_icons:nth-child(even) {
+    background-color: grey;
+}
+
+
+.sub_icons.halloween:nth-child(odd) {
+    background-color: darkorange;
+}
+
+.sub_icons.halloween:nth-child(even) {
     background-color: black;
 }
 
+.sub_icons.christmas:nth-child(odd) {
+    background-color: green;
+}
+
+.sub_icons.christmas:nth-child(even) {
+    background-color: red;
+}
+
+.sub_icons.valentines:nth-child(odd) {
+    background-color: pink;
+}
+
+.sub_icons.valentines:nth-child(even) {
+    background-color: red;
+}
+
+.sub_icons.thanksgiving:nth-child(odd) {
+    background-color: #FEE05F;
+}
+
+.sub_icons.thanksgiving:nth-child(even) {
+    background-color:#D45521;
+}
+
+.sub_icons.wedding:nth-child(odd) {
+    background-color: #678796;
+}
+
+.sub_icons.wedding:nth-child(even) {
+    background-color:#C7B4C8;
+
+
+}
 .icon_group {
     display: grid;
     grid-template-columns: 1fr 1fr;

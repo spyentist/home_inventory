@@ -72,7 +72,7 @@ selenium==3.141.0
 sinfo==0.3.4
 six==1.14.0
 soupsieve==2.2.1
-sqlparse==0.4.1
+sqlparse==0.4.2
 sqlparser==0.0.9
 statsmodels==0.12.2
 stdlib-list==0.8.0
