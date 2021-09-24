@@ -2,15 +2,22 @@
 
 {% block main %}
 <div class="form__group">
-<input type="text" class="form__field" placeholder="Seach for items..." name="search" onkeyup="listSearch()" id="myInput"/>
-<label for="search" class="form__label">Search for Items...</label>
+    <input type="text" class="form__field" placeholder="Seach for items..." name="search" onkeyup="listSearch()"
+        id="myInput" />
+    <label for="search" class="form__label">Search for Items...</label>
 </div>
-{% if item %}
-    <ul id='tableList'>
-        {% for items in item %}
-            <li><a href='#'>{{items}}   {{ items.name }} | {{ items.quantity }} {{items.row_letter}}</a></li>
+
+{% if container %}
+<table id='tableList'>
+   
+        {% for contents in container %}
+        <tr>
+        <td><a href="{% url 'pims:editItem' contents.id %}">{{ contents.name }} </a></td>
+        <td><a href="{% url 'pims:editItem' contents.id %}">{{ contents.quantity }}</td>
+        </tr>
         {% endfor %}
-    </ul>
+    
+</table>
 {% else %}
 <h1>NOT WORKING ATM</h1>
 {% endif %}

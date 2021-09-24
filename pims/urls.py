@@ -13,4 +13,5 @@ urlpatterns = [
     path('season/', views.seasonView.as_view(), name='season'),
     path('editItem/<int:pk>', views.editItem.as_view(), name='editItem'),
     # path('test/<int:pk>', views.testView.as_view(), name='test'), 
+    path('test/<int:pk>', views.test.as_view(), name='test'),
 ]

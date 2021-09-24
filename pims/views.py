@@ -55,3 +55,12 @@ class editItem(generic.UpdateView):
 
 class seasonView(generic.ListView):
     model = season
+
+
+class test(generic.ListView):
+    template_name = "pims/test.html"
+    model = container
+    context_object_name = 'container'
+    def get_queryset(self):
+        newContainer = container.objects.get(id=self.kwargs['pk'])
+        return newContainer.items.all()
