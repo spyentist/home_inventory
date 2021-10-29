@@ -1,15 +1,15 @@
 {% extends "base.html" %}
-
+{% load static %}
 {% block main %}
 <span class='icon_group'>
-    <div class="sub_icons"><img src="" alt=""/></div>
-    <div class="sub_icons"></div>
-    <div class="sub_icons"></div>
-    <div class="sub_icons"></div>
+    <div class="sub_icons"><img src="{% static 'pims/Spring.svg' %}" alt=""/></div>
+    <div class="sub_icons"><img src="{% static 'pims/Summer.svg' %}" alt=""/></div>
+    <div class="sub_icons"><img src="{% static 'pims/Fall.svg' %}" alt=""/></div>
+    <div class="sub_icons"><img src="{% static 'pims/Winter.svg' %}" alt=""/></div>
     <div class="sub_icons" style="display: none;"></div>
-    <div class="sub_icons"></div>
-    <div class="sub_icons"></div>
-    <div class="sub_icons"></div>
-    <div class="sub_icons"></div>
+    <div class="sub_icons"><img src="{% static 'pims/Home Goods.svg' %}" alt=""/></div>
+    <div class="sub_icons"><img src="{% static 'pims/Toiletries.svg' %}" alt=""/></div>
+    <div class="sub_icons"><img src="{% static 'pims/Baby/Baby M 0-3.svg' %}" alt=""/></div>
+    <div class="sub_icons"><img src="{% static 'pims/Baby/Baby M 3-6.svg' %}" alt=""/></div>
 </span>
 {% endblock %}

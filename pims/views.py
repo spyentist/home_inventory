@@ -49,8 +49,12 @@ class editItem(generic.UpdateView):
     model = item
     context_object_name = 'item'
     fields = {
-        
+        'name',
+        'quantity'
     }
+
+
+    success_url="../allItems/"
 
 
 class seasonView(generic.ListView):

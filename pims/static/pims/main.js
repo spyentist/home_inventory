@@ -6,10 +6,10 @@ function doInputOutput() {
     let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
     let month = months[date.getMonth()];
     let year = date.getUTCFullYear();
-    
+
     let display = weekDay + ", " + dayNum + " " + month + ", " + year;
 
-    
+
 
     document.getElementById("curdate").innerHTML = display;
     document.getElementById("year").innerHTML = year;
@@ -24,24 +24,26 @@ function doInputOutput() {
     // Holiday variables
     let icons = document.querySelectorAll('.sub_icons');
     // Holiday Styling
+    if (icons != null) {
+        for (i in icons) {
+            switch (month) {
+                case 'December':
+                    icons[i].classList.add("christmas");
+                    break;
+                case 'October':
+                    icons[i].classList.add('halloween');
+                    break;
+                case 'February':
+                    icons[i].classList.add('valentines');
+                    break;
+                case 'November':
+                    icons[i].classList.add('thanksgiving');
+                    break;
+                case 'January':
+                    icons[i].classList.add('wedding');
+                    break;
 
-    for (i in icons) {
-        switch (month) {
-            case 'December':
-                icons[i].classList.add("christmas");
-                break;
-            case 'October':
-                icons[i].classList.add('halloween');
-                break;
-            case 'February':
-                icons[i].classList.add('valentines');
-                break;
-            case 'November':
-                icons[i].classList.add('thanksgiving');
-                break;
-            case 'January':
-                icons[i].classList.add('wedding');
-        
+            }
         }
     }
 
@@ -68,7 +70,7 @@ function listSearch() {
     }
 }
 
-function listSearchTableTEST() {
+function listSearchTable() {
     // Declare variables
     let input, filter, ul, li, a, i, txtValue;
     input = document.getElementById('myInput');

@@ -2,13 +2,21 @@
 
 {% block main %}
 <div class="form__group">
-<input type="text" class="form__field" placeholder="Seach for items..." name="search" onkeyup="listSearch()" id="myInput"/>
-<label for="search" class="form__label">Search for Items...</label>
+    <input type="text" class="form__field" placeholder="Seach for items..." name="search" onkeyup="listSearchTable()"
+        id="myInput" />
+    <label for="search" class="form__label">Search for Items...</label>
 </div>
-    <ul id='tableList'>
-        {% for items in item %}
-            <li><a href='#'>{{ items.name }} | {{ items.quantity }}</a></li>
-        {% endfor %}
-    </ul>
+
+<table id='tableList'>
+
+    {% for items in item %}
+    <tr>
+        <td class='namecol'><a href="{% url 'pims:editItem' items.id %}">{{ items.name }} </a></td>
+        <td><a href="{% url 'pims:editItem' items.id %}">{{ items.quantity }}</a></td>
+        <td><a href="{% url 'pims:editItem' items.id %}">edit</a></td>
+    </tr>
+    {% endfor %}
+
+</table>
 
 {% endblock %}
