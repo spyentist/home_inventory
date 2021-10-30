@@ -6,8 +6,8 @@
 <label for="search" class="form__label">Search for Items...</label>
 </div>
     <ul id='tableList'>
-        {% for items in item %}
-            <li><a href='#'>{{ season.name }}</a></li>
+        {% for seasons in season %}
+            <li><a href='#'>{{ seasons.name }}</a></li>
         {% endfor %}
     </ul>
 

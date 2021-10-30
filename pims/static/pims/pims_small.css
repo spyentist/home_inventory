@@ -258,6 +258,7 @@ footer {
     font-size: 1.3rem;
     cursor: text;
     top: 20px;
+    z-index: -1;
 }
 
 .form__field::placeholder {

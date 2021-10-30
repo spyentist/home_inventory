@@ -1,4 +1,5 @@
 from django.db import models
+from django.db.models import fields
 from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render
 from django.urls import reverse
@@ -41,8 +42,6 @@ class contentsView(generic.ListView):
         newContainer = container.objects.get(id=self.kwargs['pk'])
         return newContainer.items.all()
 
-# * Above views are working as desired
-
 
 class editItem(generic.UpdateView):
     template_name = "pims/editItems.html"
@@ -52,19 +51,26 @@ class editItem(generic.UpdateView):
         'name',
         'quantity'
     }
-
-
     success_url="../allItems/"
+
+
+# * Above views are working as desired
+
 
 
 class seasonView(generic.ListView):
     model = season
+    template_name = 'pims/season.html'
 
 
-class test(generic.ListView):
-    template_name = "pims/test.html"
-    model = container
-    context_object_name = 'container'
-    def get_queryset(self):
-        newContainer = container.objects.get(id=self.kwargs['pk'])
-        return newContainer.items.all()
+class additemView(generic.CreateView):
+    model = item
+    template_name = 'pims/additems.html'
+    fields = {
+        'name',
+        'quantity'
+    }
+    success_url="../allItems/"
+
+
+# class test(generic.ListView):

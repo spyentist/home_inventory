@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
 {% block main %}
+<h2>Edit an item</h2>
 <form method="post">{% csrf_token %}
     {{ form.as_p }}
     <input type="submit" class='submitbutton'value="Update">
