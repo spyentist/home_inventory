@@ -2,12 +2,12 @@
 
 {% block main %}
 <div class="form__group">
-<input type="text" class="form__field" placeholder="Seach for items..." name="search" onkeyup="listSearch()" id="myInput"/>
-<label for="search" class="form__label">Search for Items...</label>
+<input type="text" class="form__field" placeholder="Seach for seasons..." name="search" onkeyup="listSearch()" id="myInput"/>
+<label for="search" class="form__label">Search for seasons...</label>
 </div>
     <ul id='tableList'>
         {% for seasons in season %}
-            <li><a href='#'>{{ seasons.name }}</a></li>
+            <li><a href="#">{{ seasons.name }}</a></li>
         {% endfor %}
     </ul>
 
