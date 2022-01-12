@@ -63,7 +63,8 @@ class seasonView(generic.ListView):
     template_name = 'pims/season.html'
     context_object_name = 'season'
     def get_queryset(self):
-        return season.objects.all()
+        newSeason = season.objects.get(id=self.kwargs['id'])
+        return newSeason.items.all()
 
 
 class additemView(generic.CreateView):

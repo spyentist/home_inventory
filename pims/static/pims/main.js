@@ -19,7 +19,7 @@ function doInputOutput() {
     // month = 'December';
     // month = 'October';
     // month = 'February';
-    month = 'November';
+    // month = 'November';
 
     // Holiday variables
     let icons = document.querySelectorAll('.sub_icons');
