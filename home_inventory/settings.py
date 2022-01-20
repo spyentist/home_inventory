@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-y7mflug&(zqmln&owrsd8@v#eqh=&4n7gcgxj=wh)#zi0_(-_j
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -78,17 +78,21 @@ WSGI_APPLICATION = 'home_inventory.wsgi.application'
 
 DATABASES = {
     'default': {
-    #     'ENGINE': 'django.db.backends.sqlite3',
-    #     'NAME': 'mydatabase',
-    # },
-    # 'mysql': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'inventory',
-        'USER': 'root',
-        'PASSWORD': 'Password',
-        'HOST': '127.0.0.1',
-        'PORT': '3306',
-    }
+        'NAME': os.environ.get('mysql_NAME'),
+        'USER': os.environ.get('mysql_USER'),
+        'PASSWORD': os.environ.get('mysql_PASSWORD'),
+        'HOST': 'db',
+        'PORT': '6033',
+    },
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.mysql',
+    #     'NAME': 'inventory',
+    #     'USER': 'root',
+    #     'PASSWORD': 'Password',
+    #     'HOST': '127.0.0.1',
+    #     'PORT': '3306',
+    # }
 
 }
 
