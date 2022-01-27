@@ -1,3 +1,4 @@
 
 pims/logs/*
 *.log
+pims/logs/debug.log
