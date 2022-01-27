@@ -1,3 +1,4 @@
+from tempfile import template
 from django.db import models
 from django.db.models import fields
 from django.http import HttpResponseRedirect
@@ -75,6 +76,15 @@ class additemView(generic.CreateView):
         'quantity'
     }
     success_url="../allItems/"
+
+class deleteitem(generic.DeleteView):
+    model = item
+    template_name = 'pims/additems.html'
+    fields = {
+        'name',
+        'quantity'
+    }
+    success_url = "../allItem/"
 
 
 # class test(generic.ListView):
