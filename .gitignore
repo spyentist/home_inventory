@@ -1,4 +1,4 @@
 
 pims/logs/*
 *.log
-pims/logs/debug.log
+__pycache__/*
