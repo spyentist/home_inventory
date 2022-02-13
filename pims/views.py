@@ -10,8 +10,8 @@ from django.views import generic
 
 from .models import item, container, season
 
-import logging
-logger = logging.getLogger(__name__)
+# import logging
+# logger = logging.getLogger(__name__)
 
 
 class IndexView(generic.ListView):
@@ -79,12 +79,8 @@ class additemView(generic.CreateView):
 
 class deleteitem(generic.DeleteView):
     model = item
-    template_name = 'pims/additems.html'
-    fields = {
-        'name',
-        'quantity'
-    }
-    success_url = "../allItem/"
+    template_name = 'pims/deleteitems.html'
+    success_url = "../allItems/"
 
 
 # class test(generic.ListView):

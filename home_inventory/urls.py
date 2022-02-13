@@ -25,6 +25,5 @@ urlpatterns = [
     # path('polls/', include('polls.urls')),
     path('', RedirectView.as_view(url='pims/')),
     path('pims/', include('pims.urls')),
-
 ]  + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 

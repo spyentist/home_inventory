@@ -15,6 +15,7 @@ services:
       - dbdata:/var/lib/mysql
   web:
     build: .
+    restart: always
     command: python manage.py runserver 0.0.0.0:8000
     volumes:
       - .:/code

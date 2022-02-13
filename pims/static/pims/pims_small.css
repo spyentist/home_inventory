@@ -10,10 +10,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200&display=swap');
 :root {
-    --background-color: #0C3246;
+    /* --background-color: #0C3246; */
+    /* --background-color: #15577A; */
+    --background-color: #1A4860;
     --text-color: #B44418;
     --heading-color: #B44418;
-    --accent1-color: #0C3246;
+    /* --accent1-color: #0C3246; */
     --link-color: #9DAD71;
     --accent2-color: #FCEFEF;
     --font: "Dosis", sans-serif;
@@ -32,7 +34,7 @@ a, label {
 }
 
 footer {
-    background-color: var(--accent1-color);
+    background-color: var(--background-color);
     color: var(--text-color);
     display: flex;
     flex-wrap: wrap;
@@ -84,6 +86,11 @@ nav ul li a {
     padding: .5em .25em;
 }
 
+p {
+    color: var(--text-color);
+    font-size: 2em;
+}
+
 span {
     padding: 0em 1em;
 }
@@ -109,9 +116,7 @@ ul {
     padding-left: 0;
 }
 
-.namecol {
-    max-width: 50ch;
-}
+
 /* 
 footer {
     position: absolute;
@@ -127,20 +132,24 @@ footer {
 .menu_icon a {
     display: block;
     width: 100%;
-    background-color: var(--accent1-color);
+    background-color: var(--background-color);
     text-align: center;
-
+    padding: 0;
 }
 
 .menu_icon {
     width: 100%;
 }
 
+.namecol {
+    max-width: 50ch;
+}
+
 .navigation {
     display: flex;
     list-style: none;
     height: 100%;
-    background-color: var(--accent1-color);
+    background-color: var(--background-color);
     justify-content: center;
     align-content: center;
 }

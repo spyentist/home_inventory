@@ -1,9 +1,15 @@
 {% extends "base.html" %}
 {% load static %}
 {% block main %}
-<h2>Add an Item</h2>
+<!-- <h2>Delete {{object}}</h2> -->
 <form method="post">{% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" class='submitbutton' value="Add">
+ 
+    <p>Are you sure you want to delete all <strong>{{ object.quantity }} {{object.name}}</strong>?</p>
+     
+    <input type="submit" class='submitbutton' value="Confirm">
+
+    <p>OR you can change the quantity below.</p>
+
+    <a href='{% url "pims:editItem" object.id %}'>Edit</a>
 </form>
 {% endblock %}
