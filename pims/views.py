@@ -22,7 +22,6 @@ class IndexView(generic.ListView):
 class itemListView(generic.ListView):
     template_name = 'pims/item_list.html'
     model = item
-
     context_object_name = 'item'
     def get_queryset(self):
         return item.objects.all().order_by('name')
@@ -30,7 +29,6 @@ class itemListView(generic.ListView):
 class containerListView(generic.ListView):
     template_name = "pims/container_list"
     model = container
-
     context_object_name = 'container'
     def get_queryset(self):
         return container.objects.all().order_by('row_letter')
@@ -43,6 +41,18 @@ class contentsView(generic.ListView):
         newContainer = container.objects.get(id=self.kwargs['pk'])
         return newContainer.items.all()
 
+#! TODO HERE
+class seasonView(generic.ListView):
+    model = season
+    template_name = 'pims/season.html'
+    context_object_name = 'season'
+    def get_queryset(self):
+        newSeason = season.objects.get(id=self.kwargs['pk'])
+        return newSeason.items.all()
+
+
+
+
 
 class editItem(generic.UpdateView):
     template_name = "pims/editItems.html"
@@ -54,20 +64,6 @@ class editItem(generic.UpdateView):
     }
     success_url="../allItems/"
 
-
-# * Above views are working as desired
-
-
-
-class seasonView(generic.ListView):
-    model = season
-    template_name = 'pims/season.html'
-    context_object_name = 'season'
-    def get_queryset(self):
-        newSeason = season.objects.get(id=self.kwargs['id'])
-        return newSeason.items.all()
-
-
 class additemView(generic.CreateView):
     model = item
     template_name = 'pims/additems.html'
@@ -76,6 +72,13 @@ class additemView(generic.CreateView):
         'quantity'
     }
     success_url="../allItems/"
+
+
+# * Above views are working as desired
+
+
+
+
 
 class deleteitem(generic.DeleteView):
     model = item

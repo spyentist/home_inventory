@@ -149,7 +149,6 @@ footer {
     display: flex;
     list-style: none;
     height: 100%;
-    background-color: var(--background-color);
     justify-content: center;
     align-content: center;
 }
