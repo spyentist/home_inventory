@@ -51,14 +51,14 @@ function doInputOutput() {
 
 function listSearch() {
     // Declare variables
-    let input, filter, ul, li, a, i, txtValue;
+    let input, filter, ul, li, a, txtValue;
     input = document.getElementById('myInput');
     filter = input.value.toUpperCase();
     ul = document.getElementById("tableList");
     li = ul.getElementsByTagName('li');
 
     // Loop through all list items, and hide those who don't match the search query
-    for (i = 0; i < li.length; i++) {
+    for (let i = 0; i < li.length; i++) {
         a = li[i].getElementsByTagName("a")[0];
         txtValue = a.textContent || a.innerText;
         if (txtValue.toUpperCase().indexOf(filter) > -1) {
@@ -71,25 +71,30 @@ function listSearch() {
 
 function listSearchTable() {
     // Declare variables
-    let input, filter, table, tr, td, i, txtValue;
+    let input, filter, table, tr, td, txtValue;
     input = document.getElementById('myInput');
     filter = input.value.toUpperCase();
     table = document.getElementById("tableList");
     tr = table.getElementsByTagName('tr');
-    console.log(tr.getElementsByTagName('td.namecol'));
-    td = document.querySelectorAll('.tr.namecol');
-    console.log(td);
+    // console.log(tr);
+
+    td = document.getElementsByClassName('namecol');
+    console.log(td)
+
+    
+    
+    // console.log(td);
 
     // Loop through all list items, and hide those who don't match the search query
-    for (i = 0; i < td.length; i++) {
+    for (let i = 0; i < td.length; i++) {
         console.log(td);
         a = td[i].getElementsByTagName("a")[0];
         console.log(a);
         txtValue = a.textContent || a.innerText;
         if (txtValue.toUpperCase().indexOf(filter) > -1) {
-            td[i].style.display = "";
+            td[i].parentElement.style.display = "";
         } else {
-            td[i].style.display = "none";
+            td[i].parentElement.style.display = "none";
         }
     }
 }
