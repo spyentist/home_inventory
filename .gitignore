@@ -1,5 +1,5 @@
 
 pims/logs/*
 *.log
-__pycache__/*
+*.pyc
 docker-compose.yml
