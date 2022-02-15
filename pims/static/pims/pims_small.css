@@ -200,6 +200,10 @@ footer {
     background-color: black;
 }
 
+.sub_icons.halloween:nth-child(even) img{
+    filter: invert(25%);
+}
+
 .sub_icons.christmas:nth-child(odd) {
     background-color: green;
 }

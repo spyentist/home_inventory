@@ -34,7 +34,8 @@ function doInputOutput() {
                     icons[i].classList.add('halloween');
                     break;
                 case 'February':
-                    icons[i].classList.add('valentines');
+                    icons[i].classList.toggle('valentines');
+                    console.log(icons[i]);
                     break;
                 case 'November':
                     icons[i].classList.add('thanksgiving');
@@ -76,14 +77,7 @@ function listSearchTable() {
     filter = input.value.toUpperCase();
     table = document.getElementById("tableList");
     tr = table.getElementsByTagName('tr');
-    // console.log(tr);
-
     td = document.getElementsByClassName('namecol');
-    console.log(td)
-
-    
-    
-    // console.log(td);
 
     // Loop through all list items, and hide those who don't match the search query
     for (let i = 0; i < td.length; i++) {
