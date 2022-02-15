@@ -75,8 +75,6 @@ function listSearchTable() {
     let input, filter, table, tr, td, txtValue;
     input = document.getElementById('myInput');
     filter = input.value.toUpperCase();
-    table = document.getElementById("tableList");
-    tr = table.getElementsByTagName('tr');
     td = document.getElementsByClassName('namecol');
 
     // Loop through all list items, and hide those who don't match the search query
