@@ -3,3 +3,4 @@ pims/logs/*
 *.log
 *.pyc
 docker-compose.yml
+*.qr.*
