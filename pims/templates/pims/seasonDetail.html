@@ -5,10 +5,15 @@
 <input type="text" class="form__field" placeholder="Seach for seasons..." name="search" onkeyup="listSearch()" id="myInput"/>
 <label for="search" class="form__label">Search for seasons...</label>
 </div>
+{% if season %}
     <ul id='tableList'>
-        {% for seasons in season %}
-            <li><a href="{% url 'pims:seasonDetail' seasons.id %}">{{ seasons.name }}</a></li>
+        {% for container in season %}
+            <li><a href="{% url 'pims:container_list' %}">{{ seasons.name }}</a></li>
         {% endfor %}
     </ul>
+{% else %}
+    <h1>There are no containers with items in this season.</h1>
+{% endif %}
+
 
 {% endblock %}

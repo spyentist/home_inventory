@@ -5,7 +5,7 @@
 <form method="post">{% csrf_token %}
  
     <p>Are you sure you want to delete all <strong>{{ object.quantity }} {{object.name}}</strong>?</p>
-     
+
     <input type="submit" class='submitbutton' value="Confirm">
 
     <p>OR you can change the quantity below.</p>

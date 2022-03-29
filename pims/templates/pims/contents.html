@@ -8,15 +8,13 @@
 
 {% if container %}
 <table id='tableList'>
-   
-        {% for contents in container %}
-        <tr>
-        <td class='namecol'><a href="{% url 'pims:editItem' contents.id %}">{{ contents.name }} </a></td>
-        <td><a href="{% url 'pims:editItem' contents.id %}">{{ contents.quantity }}</a></td>
-        <td><a href="{% url 'pims:editItem' contents.id %}">edit</a></td>
-        </tr>
-        {% endfor %}
-    
+    {% for contents in container %}
+    <tr>
+    <td class='namecol'><a href="{% url 'pims:editItem' contents.id %}">{{ contents.name }} </a></td>
+    <td><a href="{% url 'pims:editItem' contents.id %}">{{ contents.quantity }}</a></td>
+    <td><a href="{% url 'pims:editItem' contents.id %}">edit</a></td>
+    </tr>
+    {% endfor %}
 </table>
 {% else %}
 <h1>There are no items in this container.</h1>

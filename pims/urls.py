@@ -11,6 +11,7 @@ urlpatterns = [
     path('contents/<int:pk>', views.contentsView.as_view(), name='contents'),
     path('allcontainers/', views.containerListView.as_view(), name='container_list'),
     path('season/', views.seasonView.as_view(), name='season'),
+    path('season/<int:pk>', views.seasonDetailView.as_view(), name='seasonDetail'),
     path('edit/<int:pk>', views.editItem.as_view(), name='editItem'),
     path('delete/<int:pk>', views.deleteitem.as_view(), name='deleteItem'),
     # path('test/<int:pk>', views.test.as_view(), name='test'),

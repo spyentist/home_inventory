@@ -41,19 +41,6 @@ class contentsView(generic.ListView):
         newContainer = container.objects.get(id=self.kwargs['pk'])
         return newContainer.items.all()
 
-#! TODO HERE
-class seasonView(generic.ListView):
-    model = season
-    template_name = 'pims/season.html'
-    context_object_name = 'season'
-    def get_queryset(self):
-        newSeason = season.objects.get(id=self.kwargs['pk'])
-        return newSeason.items.all()
-
-
-
-
-
 class editItem(generic.UpdateView):
     template_name = "pims/editItems.html"
     model = item
@@ -76,7 +63,21 @@ class additemView(generic.CreateView):
 
 # * Above views are working as desired
 
+#! TODO HERE
+class seasonView(generic.ListView):
+    model = season
+    template_name = 'pims/season.html'
+    context_object_name = 'season'
+    def get_queryset(self):
+        return season.objects.all()
 
+class seasonDetailView(generic.ListView):
+    model = season
+    template_name = 'pims/seasonDetail.html'
+    context_object_name = 'season'
+    def get_queryset(self):
+        curSeason = season.objects.get(id=self.kwargs['pk']).id
+        return container.objects.filter(season=curSeason)
 
 
 
