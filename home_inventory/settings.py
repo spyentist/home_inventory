@@ -77,22 +77,22 @@ WSGI_APPLICATION = 'home_inventory.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': os.environ.get('mysql_NAME'),
-        'USER': os.environ.get('mysql_USER'),
-        'PASSWORD': os.environ.get('mysql_PASSWORD'),
-        'HOST': 'db',
-        'PORT': '3306',
-    },
     # 'default': {
     #     'ENGINE': 'django.db.backends.mysql',
-    #     'NAME': 'inventory',
-    #     'USER': 'root',
-    #     'PASSWORD': 'Password',
-    #     'HOST': '127.0.0.1',
+    #     'NAME': os.environ.get('mysql_NAME'),
+    #     'USER': os.environ.get('mysql_USER'),
+    #     'PASSWORD': os.environ.get('mysql_PASSWORD'),
+    #     'HOST': 'db',
     #     'PORT': '3306',
-    # }
+    # },
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'inventory',
+        'USER': 'root',
+        'PASSWORD': 'Password',
+        'HOST': '127.0.0.1',
+        'PORT': '3306',
+    }
 
 }
 

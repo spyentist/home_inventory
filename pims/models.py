@@ -12,7 +12,7 @@ class season(models.Model):
 
 class item(models.Model):
     name = models.CharField(max_length=40)
-    quantity = models.IntegerField(default=1)
+
     def __str__(self):
         return(self.name)
 
@@ -27,9 +27,19 @@ class container(models.Model):
     description = models.CharField(max_length=200, blank=True)
     season = models.ManyToManyField(season, blank=True)
     is_partial = models.CharField(max_length=1,choices=is_partial_choices, blank=True, default='N')
-    items = models.ManyToManyField(item)
+    
     def __str__(self):
         return f"{self.location}-{self.row_letter}-{self.column_number}"
+
+
+class item_container(models.Model):
+    quantity = models.IntegerField(default=1)    
+    item = models.ForeignKey('item', on_delete=models.DO_NOTHING)
+    container = models.ForeignKey('container', on_delete=models.DO_NOTHING)
+
+    def __str__(self):
+        return f"{self.quantity} {self.item} in {self.container}"
+
 
 
 

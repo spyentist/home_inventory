@@ -3,8 +3,8 @@
 
 @font-face {
     font-family: "Norwester";
-    src: url("//db.onlinewebfonts.com/t/9d0967bfe19937b123d26cde0ba6a217.eot");
-    src: url("//db.onlinewebfonts.com/t/9d0967bfe19937b123d26cde0ba6a217.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/9d0967bfe19937b123d26cde0ba6a217.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/9d0967bfe19937b123d26cde0ba6a217.woff") format("woff"), url("//db.onlinewebfonts.com/t/9d0967bfe19937b123d26cde0ba6a217.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/9d0967bfe19937b123d26cde0ba6a217.svg#Norwester") format("svg");
+    src: url("https://db.onlinewebfonts.com/t/9d0967bfe19937b123d26cde0ba6a217.eot");
+    src: url("https://db.onlinewebfonts.com/t/9d0967bfe19937b123d26cde0ba6a217.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/9d0967bfe19937b123d26cde0ba6a217.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/9d0967bfe19937b123d26cde0ba6a217.woff") format("woff"), url("//db.onlinewebfonts.com/t/9d0967bfe19937b123d26cde0ba6a217.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/9d0967bfe19937b123d26cde0ba6a217.svg#Norwester") format("svg");
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap');
