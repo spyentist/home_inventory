@@ -10,16 +10,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200&display=swap');
 :root {
-    /* --background-color: #0C3246; */
-    /* --background-color: #15577A; */
-    --background-color: #1A4860;
+    /* --background-color: #1A4860;  Old background color*/
     --text-color: #B44418;
     --heading-color: #B44418;
-    /* --accent1-color: #0C3246; */
-    --link-color: #9DAD71;
+    --link-color: #B44418;
     --accent2-color: #FCEFEF;
     --font: "Dosis", sans-serif;
     --heading-font: "Norwester";
+
+
+    --background-color: #122b53;
+    --header-color: #d9d9d9;
 }
 
 /* HTML selectors */
@@ -46,6 +47,8 @@ footer {
 header {
     display: grid;
     grid-template-columns: .85fr 1.15fr;
+    background-color: var(--header-color);
+    margin-bottom: 1.25em;
 }
 
 html {
@@ -57,6 +60,7 @@ h1 {
     color: var(--heading-color);
     font-size: 2em;
     text-align: center;
+    margin: 0;
 }
 
 h2 {
@@ -67,7 +71,7 @@ h2 {
 }
 
 img {
-    width: 100%;
+    /* width: 100%; */
     height: 100%;
     filter: invert(100%);
 }
@@ -117,6 +121,8 @@ ul {
 }
 
 
+
+
 /* 
 footer {
     position: absolute;
@@ -132,7 +138,7 @@ footer {
 .menu_icon a {
     display: block;
     width: 100%;
-    background-color: var(--background-color);
+    background-color: var(--header-color);
     text-align: center;
     padding: 0;
 }
@@ -143,6 +149,7 @@ footer {
 
 .namecol {
     max-width: 50ch;
+    min-width: 15ch;
 }
 
 .navigation {
@@ -312,3 +319,90 @@ footer {
     padding: 14px 40px;
     font-size: 1.5em;
 }
+
+
+/* ID Selectors */
+#pims_subhead {
+    display:none;
+}
+
+
+
+/* Scrollbat settings */
+
+
+::-webkit-scrollbar {
+    width:0;
+}
+#scrollPath {
+    position: fixed;
+    top:0;
+    right:0;
+    width: 10px;
+    height: 100%;
+    background-color: rgba(red, green, blue, .05);
+}
+#progressbar {
+    position: fixed;
+    top:0;
+    right:0;
+    width: 10px;
+    height: 0;
+    background: linear-gradient(to top, #0066cc, #ff9933);
+    animation: animate 5s linear infinite;
+}
+
+@keyframes animate {
+    0%, 100% {
+        filter: invert(0%);
+    }
+
+    50% {
+        filter: invert(100%);
+    }
+}
+
+#progressbar::before {
+    content: '';
+    position: fixed;
+    top:0;
+    right:0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, #0066cc, #ff9933);
+    filter:blur(30px);
+}
+
+#progressbar::after {
+    content: '';
+    position: fixed;
+    top:0;
+    right:0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, #0066cc, #ff9933);
+    filter:blur(30px);
+}
+
+
+
+/* ::-webkit-scrollbar {
+    width: .75em;
+    /* height: 1em; 
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: var(--header-color);
+    border-radius:  0 0 100vw 100vw;
+    /* margin-block: 0.5em; 
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: var(--heading-color);
+    border: 0.15em solid var(--header-color);
+    border-radius: 100vw;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(120 100% 10% / 1);
+  } */

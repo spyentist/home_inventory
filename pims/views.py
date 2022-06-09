@@ -1,24 +1,20 @@
 from tempfile import template
-from django.db import models
-from django.db.models import fields
-from django.http import HttpResponseRedirect
-from django.shortcuts import get_object_or_404, render
-from django.urls import reverse
 from django.views import generic
+
+from pims.forms import CreateItemContainerForm
 
 # Create your views here.
 
-from .models import item, container, season
+from .models import item, container, item_container, season
 
-# import logging
-# logger = logging.getLogger(__name__)
+from django.db import connection
 
-
-class IndexView(generic.ListView):
+# http://localhost:8000/pims/
+class IndexView(generic.TemplateView):
     template_name = 'pims/index.html'
     model = container
 
-
+# http://localhost:8000/pims/allItems/
 class itemListView(generic.ListView):
     template_name = 'pims/item_list.html'
     model = item
@@ -26,55 +22,53 @@ class itemListView(generic.ListView):
     def get_queryset(self):
         return item.objects.all().order_by('name')
 
+# http://localhost:8000/pims/allcontainers/
 class containerListView(generic.ListView):
     template_name = "pims/container_list"
     model = container
     context_object_name = 'container'
     def get_queryset(self):
-        return container.objects.all().order_by('row_letter')
+        return container.objects.all().order_by('location')
 
+# http://localhost:8000/pims/contents/11
 class contentsView(generic.ListView):
     template_name = "pims/contents.html"
     model = container
     context_object_name = 'container'
     def get_queryset(self):
         newContainer = container.objects.get(id=self.kwargs['pk'])
-        return newContainer.items.all()
+        print(connection.queries)
+        return newContainer.item_container_set.all()
 
-#! TODO HERE
-class seasonView(generic.ListView):
-    model = season
-    template_name = 'pims/season.html'
-    context_object_name = 'season'
-    def get_queryset(self):
-        newSeason = season.objects.get(id=self.kwargs['pk'])
-        return newSeason.items.all()
 
+# * Above views are working as desired
 
 
 
 
 class editItem(generic.UpdateView):
     template_name = "pims/editItems.html"
-    model = item
+    model = item_container
     context_object_name = 'item'
     fields = {
-        'name',
-        'quantity'
+        'item',
+        'quantity',
+        'container'
     }
     success_url="../allItems/"
 
 class additemView(generic.CreateView):
-    model = item
+    model = item_container
     template_name = 'pims/additems.html'
     fields = {
-        'name',
-        'quantity'
+        'item',
+        'quantity',
+        'container'
     }
     success_url="../allItems/"
 
 
-# * Above views are working as desired
+
 
 
 
@@ -86,4 +80,21 @@ class deleteitem(generic.DeleteView):
     success_url = "../allItems/"
 
 
-# class test(generic.ListView):
+class test(generic.ListView):
+    model = item_container
+    template_name = 'pims/test.html'
+
+
+
+#TODO
+class seasonView(generic.ListView):
+    model = season
+    template_name = 'pims/season.html'
+    context_object_name = 'season'
+    def get_queryset(self):
+        newSeason = season.objects.get(id=self.kwargs['pk'])
+        return newSeason.container.all()
+    # def get_context_data(self, **kwargs):
+    #     context = super().get_context_data(**kwargs)
+    #     context['item'] = item.objects.all()
+    #     return False

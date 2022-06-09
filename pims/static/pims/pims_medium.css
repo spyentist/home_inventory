@@ -11,12 +11,12 @@
 
 @media screen and (min-width: 40em) {
 
-    h1 {
-        font-size: 3em;
-    }
-
     header {
         grid-template-columns: .75fr 1.25fr;
+    }
+
+    label {
+        font-size: 1.5em;
     }
 
     nav {

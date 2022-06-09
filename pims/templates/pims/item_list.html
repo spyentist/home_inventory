@@ -1,5 +1,8 @@
 {% extends "base.html" %}
 {% load static %}
+
+{% block title %}All Items{% endblock %}
+
 {% block main %}
 <div class="form__group">
     <input type="text" class="form__field" placeholder="Seach for items..." name="search" onkeyup="listSearchTable()"

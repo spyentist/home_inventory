@@ -14,5 +14,9 @@
     ul {
         margin: 0;
     }
+
+    #pims_subhead{
+        display:block;
+    }
 }
 

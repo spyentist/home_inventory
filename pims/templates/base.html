@@ -1,41 +1,63 @@
-{% load static %}   
+{% load static %}
 <!DOCTYPE html>
-<html lang="en-us">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PIMS|HOME</title>
-    <link rel="stylesheet" href="{% static 'pims/normalize.css' %}" defer>
-    <link rel="stylesheet" href="{% static 'pims/pims_small.css' %}">
-    <link rel="stylesheet" href="{% static 'pims/pims_medium.css' %}" defer>
-    <link rel="stylesheet" href="{% static 'pims/pims_large.css' %}" defer>
-    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200&family=Montserrat:wght@200&display=swap" rel="stylesheet" defer>
-    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'pims/favicon.ico' %}">
-    <script type="text/javascript" src="{% static 'pims/main.js' %}" defer></script>
-  </head>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}PIMS{% endblock %}</title>
+  <link rel="stylesheet" href="{% static 'pims/normalize.css' %}" defer>
+  <link rel="stylesheet" href="{% static 'pims/pims_small.css' %}">
+  <link rel="stylesheet" href="{% static 'pims/pims_medium.css' %}" defer>
+  <link rel="stylesheet" href="{% static 'pims/pims_large.css' %}" defer>
+  <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200&family=Montserrat:wght@200&display=swap"
+    rel="stylesheet" defer>
+  <link rel="icon" type="image/png" sizes="16x16" href="{% static 'pims/favicon.ico' %}">
+  <script type="text/javascript" src="{% static 'pims/main.js' %}" defer></script>
+  
+</head>
+
 <body onload="doInputOutput()">
-    <header>
-      <a href="{% url 'pims:index' %}"><h1>PIMS</h1></a>
-      <nav>
-        <ul class="navigation" id="navigation">
-            <li class="menu_icon"><a href="javascript:void(0);" onclick="adaptiveMenu()">&#9776;</a></li>
-            <li class="links"><a href="{% url 'pims:index' %}">Home</a></li>
-            <li class="links"><a href="{% url 'pims:item_list' %}">All Items</a></li>
-            <li class="links"><a href="{% url 'pims:container_list' %}">Containers</a></li>
-            <!-- <li class="links"><a href="{% url 'pims:item_list' %}">Edit Items</a></li> -->
-            <li class="links"><a href="{% url 'pims:addItem' %}">Add Items</a></li>
-        </ul>
-    </nav> 
-    </header>
+  <div id="progressbar"></div>
+  <div id="scrollPath"></div>
+
+  <header>
+    <a href="{% url 'pims:index' %}">
+      <h1>PIMS</h1>
+    </a>
+    <nav>
+      <ul class="navigation" id="navigation">
+        <li class="menu_icon"><a href="javascript:void(0);" onclick="adaptiveMenu()">&#9776;</a></li>
+        <li class="links"><a href="{% url 'pims:index' %}">Home</a></li>
+        <li class="links"><a href="{% url 'pims:item_list' %}">All Items</a></li>
+        <li class="links"><a href="{% url 'pims:container_list' %}">Containers</a></li>
+        <!-- <li class="links"><a href="{% url 'pims:item_list' %}">Edit Items</a></li> -->
+        <li class="links"><a href="{% url 'pims:addItem' %}">Add Items</a></li>
+      </ul>
+    </nav>
+
+  </header>
 
 
-    <main>
-        {% block main %}
-        {% endblock %}
-    </main>
+  <main>
+    <h2 id="pims_subhead">Price Inventory Management System</h2>
+    {% block main %}
+    {% endblock %}
+  </main>
 
-    <footer>
-        &copy; <span id="year"></span> &starf; <span>PIMS</span> &starf; <span id="curdate"></span>
-    </footer>
+  <footer>
+    &copy; <span id="year"></span> &starf; <span>PIMS</span> &starf; <span id="curdate"></span>
+  </footer>
 </body>
+<script type="text/javascript">
+  let progress = document.querySelector('#progressbar');
+  let totalHeight = document.body.scrollHeight - window.innerHeight;
+  if(totalHeight < 0) {
+    totalHeight = 0;
+  }
+  window.onscroll = function() {
+  let progressHeight = (window.pageYOffset / totalHeight) * 100;
+  progress.style.height = progressHeight+"%";
+  console.log(progressHeight);
+}
+</script>
+
 </html>

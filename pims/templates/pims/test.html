@@ -1,27 +1,2 @@
-{% extends 'base.html' %}
-
-{% block main %}
-<div class="form__group">
-    <input type="text" class="form__field" placeholder="Seach for items..." name="search" onkeyup="listSearchTable()"
-        id="myInput" />
-    <label for="search" class="form__label">Search for Items...</label>
-</div>
-
-{% if container %}
-<table id='tableList'>
-   
-        {% for contents in container %}
-        <tr>
-        <td><a href="{% url 'pims:editItem' contents.id %}">{{ contents.name }} </a></td>
-        <td><a href="{% url 'pims:editItem' contents.id %}">{{ contents.quantity }}</a></td>
-        <td><a href="{% url 'pims:editItem' contents.id %}">edit</a></td>
-        </tr>
-        {% endfor %}
-    
-</table>
-{% else %}
-<h1>NOT WORKING ATM</h1>
-{% endif %}
-
-
-{% endblock %}
+{% load i18n static %}
+{{ rendered_widget }} {% block links %} {% spaceless %} {% translate 'Change' %}  {% translate 'Add' %} {% translate 'Delete' %}   {% endspaceless %} {% endblock %}

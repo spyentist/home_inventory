@@ -11,8 +11,9 @@ function doInputOutput() {
 
 
 
-    document.getElementById("curdate").innerHTML = display;
+    document.getElementById("curdate").textContent = display;
     document.getElementById("year").innerHTML = year;
+    
 
 
     // month = 'January';
