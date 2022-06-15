@@ -18,5 +18,10 @@
     #pims_subhead{
         display:block;
     }
+
+    .sub-menu, .sub-links {
+        display: none;
+    }
+
 }
 

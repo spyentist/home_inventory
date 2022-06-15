@@ -1,17 +1,22 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block title %}Containers{% endblock %}
 
 {% block main %}
-<!-- <input type="text" id="myInput" onkeyup="listSearch()" class="input_text" placeholder="Search for items.."/> -->
+<!-- <input type="text" id="myInput" onkeyup="listSearch()" class="input_text" placeholder="Search for containers.."/> -->
 <div class="form__group">
-<input type="text" class="form__field" placeholder="Seach for containers..." name="search" onkeyup="listSearch()" id="myInput"/>
-<label for="search" class="form__label">Search for containers...</label>
+    <input type="text" class="form__field" placeholder="Seach for containers..." name="search" onkeyup="listSearch()" id="myInput" />
+    <label for="search" class="form__label">Search for containers...</label>
 </div>
-    <ul id='tableList'>
-        {% for containers in container %}
-            <li><a href="{% url 'pims:contents' containers.id %}">{{ containers.location }}-{{ containers.row_letter }}-{{ containers.column_number }} </a></li>
-        {% endfor %}
-    </ul>
+<table id='tableList'>
+    {% for containers in container %}
+    <tr>
+        <td class='namecol'><a href="{% url 'pims:contents' containers.id %}">{{ containers }} </a></td>
+        <td><a href="{% url 'pims:editContainer' containers.id %}"> <img src="{% static 'pims/pencil.svg' %}" alt="edit icon" /></a></td>
+        <td><a href="{% url 'pims:deleteContainer' containers.id %}"> <img src="{% static 'pims/trash.svg' %}" alt='delete icon' /> </a></td>
+    </tr>
+    {% endfor %}
+</table>
 
 {% endblock %}

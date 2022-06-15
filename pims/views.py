@@ -1,7 +1,7 @@
 from tempfile import template
 from django.views import generic
 
-from pims.forms import CreateItemContainerForm
+from pims.forms import containerForm
 
 # Create your views here.
 
@@ -44,9 +44,12 @@ class contentsView(generic.ListView):
 # * Above views are working as desired
 
 
+class itemDetailView(generic.DetailView):
+    model = container
 
 
-class editItem(generic.UpdateView):
+
+class editIC(generic.UpdateView):
     template_name = "pims/editItems.html"
     model = item_container
     context_object_name = 'item'
@@ -55,19 +58,57 @@ class editItem(generic.UpdateView):
         'quantity',
         'container'
     }
-    success_url="../allItems/"
+    success_url="../../allItems/"
 
-class additemView(generic.CreateView):
+class editItem(generic.UpdateView):
+    template_name = "pims/editItems.html"
+    model = item
+    context_object_name = 'item'
+    fields = {
+        'name'
+    }
+    success_url="../../allItems/"
+
+class editContainer(generic.UpdateView):
+    template_name = "pims/editItems.html"
+    model = container
+    context_object_name = 'item'
+    form_class = containerForm
+    success_url="../../allContainers/"
+
+class addICView(generic.CreateView):
     model = item_container
-    template_name = 'pims/additems.html'
+    template_name = 'pims/additemscontainer.html'
     fields = {
         'item',
         'quantity',
         'container'
     }
-    success_url="../allItems/"
+    success_url="../../allItems/"
 
+class additemView(generic.CreateView):
+    model = item
+    template_name = 'pims/add.html'
+    fields = {
+        'name'
+    }
+    success_url="../../allItems/"
 
+class addcontainerView(generic.CreateView):
+    model = container
+    template_name = 'pims/add.html'
+    # fields = {
+    # 'location',
+    # 'row_letter',
+    # 'column_number',
+    # 'description',
+    # 'season',
+    # 'is_partial',
+    # }
+    success_url="../../allcontainers/"
+    form_class = containerForm
+    
+    
 
 
 
@@ -77,7 +118,14 @@ class additemView(generic.CreateView):
 class deleteitem(generic.DeleteView):
     model = item
     template_name = 'pims/deleteitems.html'
-    success_url = "../allItems/"
+    success_url = "../../allItems/"
+
+class deleteContainer(generic.DeleteView):
+    model = container
+    template_name = 'pims/deleteitems.html'
+    success_url = "../../allContainers/"
+
+
 
 
 class test(generic.ListView):

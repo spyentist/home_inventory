@@ -48,6 +48,15 @@ function doInputOutput() {
         }
     }
 
+
+    // Add event listeners for javascript fluidity.
+    if(document.querySelector('#adaptiveMenu')){
+    document.querySelector('#adaptiveMenu').addEventListener('click', adaptiveMenu);
+    }
+    if(document.querySelector('#adaptiveSubMenu')){
+        document.querySelector('#adaptiveSubMenu').addEventListener('click', adaptiveSubMenu);
+    }
+        
 }
 
 
@@ -98,5 +107,16 @@ function adaptiveMenu() {
         links.className += ".responsive";
     } else {
         links.className = "navigation";
+    }
+}
+
+function adaptiveSubMenu() {
+    console.log('subbed')
+    let links = document.getElementById("sub-menu");
+    console.log(links)
+    if (links.className === "sub-menu") {
+        links.className += ".responsive";
+    } else {
+        links.className = "sub-menu";
     }
 }

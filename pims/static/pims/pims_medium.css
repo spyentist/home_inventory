@@ -56,6 +56,10 @@
     .navigation li:first-child {
         display: none;
     }
+
+    .sub-menu, .sub-links {
+        display: none;
+    }
     
 
 
