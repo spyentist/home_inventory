@@ -144,7 +144,7 @@ footer {
     width: 100%;
     background-color: var(--header-color);
     text-align: center;
-    /* padding: 0; */
+    padding: 0;
 }
 
 .menu_icon {
@@ -159,7 +159,7 @@ footer {
 .navigation {
     display: flex;
     list-style: none;
-    height: 100%;
+    /* height: 100%; */
     justify-content: center;
     align-content: center;
 }
@@ -177,11 +177,30 @@ footer {
     display: none;
 }
 
-.sub-menu, .sub-links {
-    display: none;
-    /* justify-content: center;
-    align-content: center; */
+.sub-menu {
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    align-content: center;
 }
+
+.sub-menu a {
+    text-align: center;
+    display: block;
+}
+
+.sub-menu li:first-child {
+    display: block;
+}
+
+.sub-menu li {
+    display: none;
+}
+
+.sub-links:first-child {
+    display: block;
+}
+
 
 .responsive {
     display: flex;
@@ -197,7 +216,6 @@ footer {
     height: 225px;
     width: 100%;
     align-content: center;
-    /* margin-bottom: 1em; */
 }
 
 .sub_icons:nth-child(odd) {

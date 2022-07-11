@@ -46,6 +46,7 @@ class contentsView(generic.ListView):
 
 class itemDetailView(generic.DetailView):
     model = container
+    template_name: 'base.html'
 
 
 

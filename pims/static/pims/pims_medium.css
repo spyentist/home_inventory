@@ -1,14 +1,3 @@
-/* :root {
-    --background-color: #0C3246;
-    --text-color: #B44418;
-    --accent1-color: #0C3246;
-    --link-color: #9DAD71;
-    --accent2-color: #FCEFEF;
-} */
-
-
-
-
 @media screen and (min-width: 40em) {
 
     header {
@@ -57,11 +46,23 @@
         display: none;
     }
 
-    .sub-menu, .sub-links {
-        display: none;
+
+    .sub-menu {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        row-gap: 50px;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        margin: 0;
     }
     
-
+    .sub-menu li {
+        display: flex;
+    }
+    
+    .sub-menu li:first-child {
+        display: none;
+    }
 
     .icon_group {
         grid-template-columns: 1fr 1fr 1fr;
@@ -71,9 +72,3 @@
         width: 30%;
     }
 }
-
-/* @media screen and (min-width:60em) {
-    header {
-        grid-template-columns: .4fr 1.6fr;
-    }
-} */
