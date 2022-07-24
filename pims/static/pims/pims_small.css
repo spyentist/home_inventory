@@ -1,14 +1,11 @@
-
 @import url(//db.onlinewebfonts.com/c/9d0967bfe19937b123d26cde0ba6a217?family=Norwester);
-
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200&display=swap');
 @font-face {
     font-family: "Norwester";
     src: url("https://db.onlinewebfonts.com/t/9d0967bfe19937b123d26cde0ba6a217.eot");
     src: url("https://db.onlinewebfonts.com/t/9d0967bfe19937b123d26cde0ba6a217.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/9d0967bfe19937b123d26cde0ba6a217.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/9d0967bfe19937b123d26cde0ba6a217.woff") format("woff"), url("//db.onlinewebfonts.com/t/9d0967bfe19937b123d26cde0ba6a217.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/9d0967bfe19937b123d26cde0ba6a217.svg#Norwester") format("svg");
 }
-
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200&display=swap');
 :root {
     /* --background-color: #1A4860;  Old background color*/
     --text-color: #B44418;
@@ -17,8 +14,6 @@
     --accent2-color: #FCEFEF;
     --font: "Dosis", sans-serif;
     --heading-font: "Norwester";
-
-
     --background-color: #122b53;
     --header-color: #d9d9d9;
 }
@@ -26,7 +21,7 @@
 /* HTML selectors */
 
 
-a, label {
+a, label, button {
     color: var(--link-color);
     text-decoration: none;
     font-family: var(--font);
@@ -112,6 +107,7 @@ tr {
     border: 1px solid var(--accent2-color);
     padding: 5px 0 5px 0;
 }
+
 td {
     padding-left: 5px;
     padding-right: 5px;
@@ -124,19 +120,7 @@ ul {
     padding-left: 0;
 }
 
-
-
-
-/* 
-footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-} */
-
-
 /* Class Selectors */
-
 
 .links a,
 .menu_icon a {
@@ -166,6 +150,7 @@ footer {
 
 .navigation a {
     text-align: center;
+    align-content: center;
     display: block;
 }
 
@@ -174,6 +159,11 @@ footer {
 }
 
 .navigation li {
+    display: none;
+}
+
+
+.sub-links {
     display: none;
 }
 
@@ -193,14 +183,14 @@ footer {
     display: block;
 }
 
-.sub-menu li {
-    display: none;
+.sub-links:first-child{
+    display: block;
+    background-color: hotpink;
 }
 
-.sub-links:first-child {
+.sub-menu.responsive > li.sub-links, ul.sub-menu.responsive li.sub-links a {
     display: block;
 }
-
 
 .responsive {
     display: flex;
@@ -212,8 +202,48 @@ footer {
     display: block;
 }
 
+.dropbtn {
+    width:100%;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    color: var(--heading-color);
+    background-color: var(--header-color);
+}
+  
+.dropdown {
+    position: relative;
+    text-align: center;
+    float:right;
+}
+
+.dropdown-content {
+    right:0;
+    display: none;
+    position: absolute;
+    background-color: var(--header-color);
+    min-width: 200px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+  
+.dropdown-content a {
+    color: var(--text-color);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+  
+.dropdown-content a:hover {
+    background-color: #ddd
+}
+
+.show {display:block;}
+
+
+
 .sub_icons, .sub_icons.christmas, .sub_icons.halloween, .sub_icons.thanksgiving, .sub_icons.valentines {
-    height: 225px;
+    height: 175px;
     width: 100%;
     align-content: center;
 }
@@ -354,75 +384,17 @@ footer {
     display:none;
 }
 
-
-
-/* Scrollbar settings */
-
+/* Psuedo Modifiers */
 
 ::-webkit-scrollbar {
-    width:0;
-}
-#scrollPath {
-    position: fixed;
-    top:0;
-    right:0;
-    width: 10px;
-    height: 100%;
-    background-color: rgba(red, green, blue, .05);
-}
-#progressbar {
-    position: fixed;
-    top:0;
-    right:0;
-    width: 10px;
-    height: 0;
-    background: linear-gradient(to top, #0066cc, #ff9933);
-    animation: animate 5s linear infinite;
-}
-
-@keyframes animate {
-    0%, 100% {
-        filter: invert(0%);
-    }
-
-    50% {
-        filter: invert(100%);
-    }
-}
-
-#progressbar::before {
-    content: '';
-    position: fixed;
-    top:0;
-    right:0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to top, #0066cc, #ff9933);
-    filter:blur(30px);
-}
-
-#progressbar::after {
-    content: '';
-    position: fixed;
-    top:0;
-    right:0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to top, #0066cc, #ff9933);
-    filter:blur(30px);
-}
-
-
-
-/* ::-webkit-scrollbar {
     width: .75em;
-    /* height: 1em; 
+    /* height: 1em;  */
   }
   
   ::-webkit-scrollbar-track {
     background: var(--header-color);
     border-radius:  0 0 100vw 100vw;
-    /* margin-block: 0.5em; 
+    /* margin-block: 0.5em;  */
   }
   
   ::-webkit-scrollbar-thumb {
@@ -433,4 +405,4 @@ footer {
   
   ::-webkit-scrollbar-thumb:hover {
     background: hsl(120 100% 10% / 1);
-  } */
+  }

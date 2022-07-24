@@ -1,5 +1,7 @@
 @media screen and (min-width: 40em) {
 
+    /* HTML Selectors */
+
     header {
         grid-template-columns: .75fr 1.25fr;
     }
@@ -12,12 +14,15 @@
         align-content: center;
     }
 
-    .vert-align {
-        position:absolute;
-        writing-mode: vertical-rl;
-        text-orientation: upright;
-        font-size: 10em;
-        margin: 0 auto;
+    /* Class Selectors */
+
+    
+    .block-main {
+        grid-column: 2/3;
+    }
+
+    .form__group {
+        width: 30%;
     }
 
     .grid {
@@ -25,8 +30,8 @@
         grid-template-columns: 1fr 5fr;
     }
 
-    .block-main {
-        grid-column: 2/3;
+    .icon_group {
+        grid-template-columns: 1fr 1fr 1fr;
     }
 
     .navigation {
@@ -46,29 +51,17 @@
         display: none;
     }
 
-
-    .sub-menu {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        row-gap: 50px;
-        justify-content: space-around;
-        flex-wrap: wrap;
-        margin: 0;
+    .sub_icons, .sub_icons.christmas, .sub_icons.halloween, .sub_icons.thanksgiving, .sub_icons.valentines {
+        height: 225px;
     }
+
+    .vert-align {
+        position:absolute;
+        writing-mode: vertical-rl;
+        text-orientation: upright;
+        font-size: 10em;
+        margin: 0 auto;
+    }
+
     
-    .sub-menu li {
-        display: flex;
-    }
-    
-    .sub-menu li:first-child {
-        display: none;
-    }
-
-    .icon_group {
-        grid-template-columns: 1fr 1fr 1fr;
-    }
-
-    .form__group {
-        width: 30%;
-    }
 }

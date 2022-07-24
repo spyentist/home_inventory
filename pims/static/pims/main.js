@@ -110,13 +110,21 @@ function adaptiveMenu() {
     }
 }
 
+
+
 function adaptiveSubMenu() {
-    console.log('subbed')
-    let links = document.getElementById("sub-menu");
-    console.log(links)
-    if (links.className === "sub-menu") {
-        links.className += ".responsive";
-    } else {
-        links.className = "sub-menu";
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// adaptiveSubMenu Undo
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    let dropdowns = document.getElementsByClassName("dropdown-content");
+    for (let i = 0; i < dropdowns.length; i++) {
+      let openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
     }
+  }
 }

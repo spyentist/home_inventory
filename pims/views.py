@@ -98,18 +98,9 @@ class additemView(generic.CreateView):
 class addcontainerView(generic.CreateView):
     model = container
     template_name = 'pims/add.html'
-    # fields = {
-    # 'location',
-    # 'row_letter',
-    # 'column_number',
-    # 'description',
-    # 'season',
-    # 'is_partial',
-    # }
     success_url="../../allcontainers/"
     form_class = containerForm
-    
-    
+ 
 
 
 
