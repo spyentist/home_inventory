@@ -22,7 +22,7 @@ from django.views.generic import RedirectView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    # path('polls/', include('polls.urls')),
+    # path('', include('pims.urls')),
     path('', RedirectView.as_view(url='pims/')),
     path('pims/', include('pims.urls')),
 ]  + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

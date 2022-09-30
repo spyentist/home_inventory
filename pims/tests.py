@@ -34,6 +34,3 @@ class testItem(TestCase):
         
         # self.assertEqual(list(item.objects.values('name')), [{'name': 'Chair'}, {'name': 'Desk'}])
         # self.assertEqual(list(cont1.items.values('name')), [{'name': 'Chair'}, {'name': 'Desk'}])    
-
-
-    

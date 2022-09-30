@@ -9,12 +9,12 @@ from .models import item, container, item_container, season
 
 from django.db import connection
 
-# http://localhost:8000/pims/
+# http://localhost:8000/
 class IndexView(generic.TemplateView):
     template_name = 'pims/index.html'
     model = container
 
-# http://localhost:8000/pims/allItems/
+# http://localhost:8000/allItems/
 class itemListView(generic.ListView):
     template_name = 'pims/item_list.html'
     model = item
@@ -22,7 +22,7 @@ class itemListView(generic.ListView):
     def get_queryset(self):
         return item.objects.all().order_by('name')
 
-# http://localhost:8000/pims/allcontainers/
+# http://localhost:8000/allcontainers/
 class containerListView(generic.ListView):
     template_name = "pims/container_list"
     model = container
@@ -30,7 +30,7 @@ class containerListView(generic.ListView):
     def get_queryset(self):
         return container.objects.all().order_by('location')
 
-# http://localhost:8000/pims/contents/11
+# http://localhost:8000/contents/11
 class contentsView(generic.ListView):
     template_name = "pims/contents.html"
     model = container
@@ -45,8 +45,8 @@ class contentsView(generic.ListView):
 
 
 class itemDetailView(generic.DetailView):
-    model = container
-    template_name: 'base.html'
+    model = item
+    template_name: 'pims/itemDetails.html'
 
 
 
@@ -59,7 +59,7 @@ class editIC(generic.UpdateView):
         'quantity',
         'container'
     }
-    success_url="../../allItems/"
+    success_url="../allItems/"
 
 class editItem(generic.UpdateView):
     template_name = "pims/editItems.html"
@@ -85,7 +85,7 @@ class addICView(generic.CreateView):
         'quantity',
         'container'
     }
-    success_url="../../allItems/"
+    success_url="../allItems/"
 
 class additemView(generic.CreateView):
     model = item
@@ -93,31 +93,34 @@ class additemView(generic.CreateView):
     fields = {
         'name'
     }
-    success_url="../../allItems/"
+    success_url="../allItems/"
 
 class addcontainerView(generic.CreateView):
     model = container
     template_name = 'pims/add.html'
-    success_url="../../allcontainers/"
+    success_url="../allcontainers/"
     form_class = containerForm
- 
-
-
-
-
-
 
 class deleteitem(generic.DeleteView):
     model = item
     template_name = 'pims/deleteitems.html'
-    success_url = "../../allItems/"
+    success_url = "../allItems/"
 
 class deleteContainer(generic.DeleteView):
     model = container
     template_name = 'pims/deleteitems.html'
-    success_url = "../../allContainers/"
+    success_url = "../allContainers/"
 
 
+class styleGuide(generic.ListView):
+    template_name = 'pims/styleGuide.html'
+    def get_queryset(self):
+        return ''
+
+class sitePlan(generic.ListView):
+    template_name = 'pims/sitePlan.html'
+    def get_queryset(self):
+        return ''
 
 
 class test(generic.ListView):
