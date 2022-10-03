@@ -11,6 +11,7 @@ class season(models.Model):
 
 class item(models.Model):
     name = models.CharField(max_length=40)
+    #? Maybe add a slug field?
 
     def __str__(self):
         return(self.name)
@@ -38,7 +39,7 @@ class item_container(models.Model):
     container = models.ForeignKey('container', on_delete=models.CASCADE)
 
     def __str__(self):
-        return f"{self.quantity} {self.item} in {self.container}"
+        return f"{self.quantity} of {self.item} in {self.container}"
 
     class Meta:
         unique_together = [['item', 'container']]

@@ -5,16 +5,18 @@
 Style Guide
 {% endblock %}
 
+{% block head %}
+<link type="text/css" rel="stylesheet" href="{% static 'styleGuide.css' %}">  
+{% endblock  %}
+
 
 
 {% block main %}
 
-<link type="text/css" rel="stylesheet" href="site-plan.css">  
+
     <header>
-      <h1>PricelessNoMore Site Plan</h1>
+      <h1>PIMS Site Plan</h1>
       <h2>Ryan Price</h2>
-      <h2>WDD 130.04</h2>
-      <!-- In the header above, add your name and class number. For example if you are in section 3 you would put WDD 130.03 -->
     </header>
     <main>
 
@@ -22,18 +24,18 @@ Style Guide
       <h2>Overview</h2>
       <hr>
       <h3>Purpose</h3>
-      <p>The purpose of this website is to share information about Ryan and Nichole Price as they are getting married.<br/><br/> Have you heard that Nichole and Ryan(or I) are getting married? Check out the website that Ryan(or I) made to figure out when you can come for our receptions or find out some things about either of us and how we met. Also you can find our registries and other fun things.</p>  <!-- change this -->
+      <p>This website is going to provide users with a home inventory system that will help track items, quantities, and in the worst case scenario help with insurance when tradgedies hit.</p>  <!-- change this -->
 
 
       <h3>Audience</h3>
-      <p>The main people who will be looking at this website are going to be looking for information about Nichole, Ryan, the receptions, or how they met. They will also be entertained by the images and stories that are shared on the site which are written by both Ryan and Nichole. People will be able to encounter this site via a QR code that will be located on the wedding invitation and via social media posts that will attract attention.</p>  <!-- change this -->
+      <p>The audience will be users looking to store items in the database and have them logically locatable through a container system and QR codes.</p>  <!-- change this -->
 
 
       <h2>Branding</h2>
       <h3>Website Logo</h3>
       <!-- Replace this with some sort of logo for your site.  A logo can be as simple as the name of your site in a nice font :) -->
       <h1>
-        #PricelessNoMore
+        WIP
       </h1>
       <hr>
       <h2>
@@ -65,30 +67,24 @@ Style Guide
       <!-- Choose a font for your paragraphs (body copy) and headlines. What font(s) have you chosen? Why did you choose what you did?  Make sure to review the list of web safe fonts at W3Schools.org as a starting point.  Think also about which of your colors above you might use for background and font colors. -->
 
       <h4>
-        Heading Font: Satisfy  <!-- change this -->
+        Heading Font:  <!-- change this -->
       </h4>
-      <p>
-        This is the font that my fiancée chose to use on the wedding invitations and to be synonomous across all of our different mediums. This font also provides at a larger size like included on the website a good contrast while still being able to be read. This font is harder at smaller sizes but is not meant to be small. <!-- change this -->
-      </p>
 
       <h4>
-        Paragraph Font: Crimson Text  <!-- change this -->
+        Paragraph Font:   <!-- change this -->
       </h4>
-      <p>
-        This is the font that my fiancée chose to use on the wedding invitations and to be synonomous across all of our different mediums. This font is very easy to read in a small or a large format. This font is great for contrast and readability.  <!-- change this -->
-      </p>
 
       <h4>
         Normal paragraph example
       </h4>
       <p>
-        The best Whitewater Rafting in Colorado, White Water Rafting Company offers rafting on the Colorado and Roaring Fork Rivers in Glenwood Springs.  Since 1974, we have been family owned and operated, rafting the Shoshone section of Glenwood Canyon and beyond.
+        {% lorem 1 b random%}
       </p>
       <h4>
         Colored paragraph example
       </h4>
       <p class="colored">
-        Trips vary from mild and great for families, to trips exclusively for physically fit and experienced rafters.  No matter what type of river adventures you are seeking, White Water Rafting Company can make it happen for you. 
+        {% lorem 1 b random %}
       </p>
 
       <!-- ------------------------Step 10------------------------------ -->
@@ -97,26 +93,12 @@ Style Guide
         Navigation
       </h3>
       <!-- Think about how you want your navigation bar to look. In the site-plan.css file change the colors to your colors to get the look you desire. --> 
-      <nav><ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="nichole_bio.html">Nichole's Bio</a></li>
-        <li><a href="ryan_bio.html">Ryan's Bio</a></li>
-        </ul></nav>
+      <p> See above</p>
       <hr>
       <h2>
-        Site Map
+        Site Map: 
       </h2>
-      <div class="sitemap">
-        <div class="sm-home">
-          Home
-        </div>
-        <div class="sm-page2">
-          Ryan's Bio <!-- change this -->
-        </div>
-        <div class="sm-page3">
-          Nichole's Bio  <!-- change this -->
-        </div>
-
+      <a href={% url 'pims:sitePlan' %}>See at this link</a>
         <div class="top">
           &nbsp;
         </div>
@@ -136,104 +118,25 @@ Style Guide
       </h2>
       <h3>Home page</h3>
       <p>
-        Welcome to our webpage! This has information about our receptions, wedding, some information about us and our story. We hope that you enjoy and maybe learn something new! Here are some pictures to get you started.
+        {% lorem 1 b random %}
       </p>
-      <p>Images for the Home page</p>
-      <ul>
-        <li><img src="https://cdn.glitch.com/77f7de13-1d81-494d-8a35-cdb078f0ffee%2FB3F99145-BBE8-43A3-AEDF-407375756499.png?v=1571766902814" alt="image for homepage"></li>
-        <li><img src="https://cdn.glitch.com/77f7de13-1d81-494d-8a35-cdb078f0ffee%2F72365107_2645169395704235_5037893967014789120_n.jpg?v=1571773034985" class="imagegroup-1"></li>
-        <li><img src="https://cdn.glitch.com/77f7de13-1d81-494d-8a35-cdb078f0ffee%2F66393838_2558932377661271_701726510033141760_n.jpg?v=1571896445111" class="imagegroup-2"></li>
-        <li><img src="https://cdn.glitch.com/77f7de13-1d81-494d-8a35-cdb078f0ffee%2FIMG_0778.jpg?v=1573105720224" class="imagegroup-3"></li>
-        <li><img src="" class="imagegroup-4"></li>
-        <li><img src="https://cdn.glitch.com/77f7de13-1d81-494d-8a35-cdb078f0ffee%2F8A3C456D-5AA9-49A1-BADB-140FFC052ECF.png?v=1573105742506" class="imagegroup-5"></li>
-        <li><img src="https://cdn.glitch.com/77f7de13-1d81-494d-8a35-cdb078f0ffee%2FRyNichole%5BEdited%5D.JPG?v=1573105778747" class="imagegroup-6"></li>
-        <li><img src="https://cdn.glitch.com/77f7de13-1d81-494d-8a35-cdb078f0ffee%2FFD7D1C18-3242-48E5-9463-4B764189E074.png?v=1573105810407" class="imagegroup-7"></li>
-
-      </ul>
-      <h3>Nichole's Bio</h3>
+  
+      <h3>Items and sub pages</h3>
       <p>
-        About Nichole <br/>
-Nichole Baxter is an amazing young woman who has such a caring heart, is very service oriented, and loves unconditionally. Nichole was born in Kalona, Iowa as the youngest of 4 and her family moved to the tiny town of Coopersville, Michigan where she grew up. She is a very bubbly person who loves to laugh and have fun! She is an amazing musican who sings amazingly and plays the piano equally well. Nichole started in the winter semester studying Voice in the music department at BYU-Idaho but is looking into other degrees that she has interest in. She has always had a passion for teaching and loves to help whereever she can.
+        {% lorem 1 b random %}
       </p>
-      <p>Images for the Page 2</p>
-      <ul>
-        <li><img src="https://cdn.glitch.com/77f7de13-1d81-494d-8a35-cdb078f0ffee%2F73528731_2650687021819139_3576059091421757440_n.jpg?v=1571773140114" alt="image for page"></li>
-        <li><img src="images/dryoarlogo.png" alt="image for page"></li>
 
-      </ul>
-      <h3>Ryan's Bio</h3>
+      <h3>Containers and sub pages</h3>
       <p>
-        About Ryan <br/>
-Ryan Price, a kind hearted gentleman who was born in Boise, Idaho, is one of the sweetest and most giving person you could possibly meet. He is a music loving, nerd loving, computer wizard currently studying CIT at BYU-Idaho (he even made this whole website!) Ryan served a mission in San Antonio, Texas, Spanish speaking and returned home after two years of serving last year. He has a contagious laugh, a great smile, and a big heart who is willing to serve nearly anyone. Ryan grew up in Kuna, Idaho with one other younger brother, and two wonderful parents who taught him very well. Ryan is loved by many and especially loved by Nichole (who may have written this!)
+        {% lorem 1 b random %}
       </p>
-      <p>Images for the Page 3</p>
-      <ul>
-        <li><img src="https://cdn.glitch.com/77f7de13-1d81-494d-8a35-cdb078f0ffee%2FE0A38E6F-7C26-4CCB-99B5-7DE41D3EA0B4.png?v=1571770271358" alt="image for page3"></li>
-        <li><img src="images/dryoarlogo.png" alt="image for page3"></li>
 
-      </ul>
+      <h3>Item in Containers (I2C) and sub pages</h3>
+      <p>
+        {% lorem 1 b random %}
+      </p>
       <hr>
-      <ul>
-        <li><img src="https://cdn.glitch.com/77f7de13-1d81-494d-8a35-cdb078f0ffee%2F73528731_2650687021819139_3576059091421757440_n.jpg?v=1571773140114" alt="image for page"></li>
-        <li><img src="images/dryoarlogo.png" alt="image for page"></li>
-
-      </ul>
-      <h3>Our Story</h3>
-      <p>
-        How We Met
-June 29th of 2019 is when the whole story began. Ryan was invited by his roommate Josh to go bowling with some friends for a fun night out and Nichole just happened to be a member of this group. As Ryan always says, he instantly wanted to get to know and become friends with Nichole, (not to mention Ryan thought she was quite pretty.) After bowling, we decided to go play some games in the park, and while up at BYU-Idaho, always includes a round of sardines. On Ryan’s turn to hide, Nichole was the lucky one to find him first, and of course, Ryan hid in the bushes and Nichole had to hide in them with him. This was our first time talking and being alone that night and of course, Nichole’s first words to him were “Hi, my name is Nichole.” (Talk about awkward!) Finding out that night we learned we both loved video games and decided to start playing together any chance we could. This started the beginning of the end of a great semester.
 
 
-Nichole ended up being at Ryan’s apartment every day since that day we met, just hanging out with all his roommates and FHE sisters. Most days, she was there longer than Ryan was! Many a movie was watched, games were played, food was cooked, and friends were happy. Feelings were also starting, but with Nichole planning on serving a mission, (heck, she was almost done with her papers when she met Ryan, and had them submitted by the end of the semester) Nichole shot down Ryan many times, but good thing Ryan is persistent and knew that chasing after this “out-of-control” girl was eventually going to be worth it. A last hoorah came at the end of the semester where Ryan and Josh graciously accepted to give Nichole a ride to Utah to catch a flight back home to Michigan. We hugged and said our final goodbyes for almost 2 years- or so we thought.
-
-
-As soon as Nichole got home, she realized how much Ryan meant to her and how much she really did like him and could not deny it anymore. Calls were made and usually lasted for hours every day. We laughed at the idea of Ryan coming to visit Nichole, but never really took it seriously until Brittany (Nichole’s sister) decided to call him and ask him to be Nichole's date to her friends' wedding. Being freaked that this could actually happen, Nichole said the ticket could not be more than $300. The first ticket that he found was $299. Heavenly Father sometimes has a sense of humor. Ryan came to visit the second week of August, and the first day he was there, we made our relationship official, and by the end of that fantastic week together, we decided through lots of prayer that marriage was likely in our future. Nichole decided to put her mission papers away for good because a new, wonderful, and exciting path was placed in her way - and it is so much sweeter.
-
-Ryan and Nichole were officially engaged on October 13th, 2019, and will be sealed for time and all eternity on January 3rd, 2020.
-      </p>
-      <p>Images for the Page 4</p>
-      <ul>
-        <li><img src="https://cdn.glitch.com/77f7de13-1d81-494d-8a35-cdb078f0ffee%2F72757195_2650686915152483_1912085836355076096_n.jpg?v=1571776289554" alt="image for page4"></li>
-        <li><img src="https://cdn.glitch.com/77f7de13-1d81-494d-8a35-cdb078f0ffee%2F67312746_2565660283655147_3785914685312729088_n.jpg?v=1571896457817" alt="image for page4"></li>
-        <li><img src="https://cdn.glitch.com/77f7de13-1d81-494d-8a35-cdb078f0ffee%2FCC218A54-0799-4B57-AD78-4BDAD8AFCB4D.png?v=1573095653918" alt="image for page4"></li>
-        <li><img src="https://cdn.glitch.com/77f7de13-1d81-494d-8a35-cdb078f0ffee%2FDFE47C5C-F9A4-40D1-A743-7EC91B9D035C.png?v=1573096791087" alt="image for page4"></li>
-        <li><img src="https://cdn.glitch.com/77f7de13-1d81-494d-8a35-cdb078f0ffee%2F6AA4F9DD-5F0E-45CD-B9D3-09FCF2750245.png?v=1573096097098" alt="image for page4"></li>
-        <li><img src="https://cdn.glitch.com/77f7de13-1d81-494d-8a35-cdb078f0ffee%2FD7D0EAC7-94C0-49DF-A2BE-D47775D18BF0.png?v=1573095650776" alt="image for page4"></li>
-
-      </ul>
-      <hr>
-      
-      <h2>
-        Wireframes
-      </h2>
-      <p>
-        Create three wireframes for your site. One for each page and list them here</p>
-
-      <h3>Home</h3>
-      <p>         
-        The pictures that are located below the main one are animated to center themselves and expand.
-      </p>
-      <img src="https://cdn.glitch.com/77f7de13-1d81-494d-8a35-cdb078f0ffee%2F1-Home.png?v=1573767615396">
-
-      <h3>Ryan's Bio</h3>
-      <p>         
-        [Any additional details about page 2 that the wireframe does not make clear]
-      </p>
-      <img src="https://cdn.glitch.com/77f7de13-1d81-494d-8a35-cdb078f0ffee%2F1-Ryan_bio.png?v=1573767612563">
-
-      <h3>Nichole's Bio</h3>
-      <p>         
-        [Any additional details about page 3 that the wireframe does not make clear]
-      </p>
-      <img src="https://cdn.glitch.com/77f7de13-1d81-494d-8a35-cdb078f0ffee%2F1-Nichole_Bio.png?v=1573767607752">
-      <h3>Our Story</h3>
-      <p>         
-        [Any additional details about page 3 that the wireframe does not make clear]
-      </p>
-      <img src="https://cdn.glitch.com/77f7de13-1d81-494d-8a35-cdb078f0ffee%2F1-Our_Story.png?v=1573767605172">
-    </main>
-  </body>
-
-</html>
 
 {% endblock %} 

@@ -12,7 +12,7 @@ urlpatterns = [
     path('allItems/', views.itemListView.as_view(), name='item_list'),
     path('editItem/<int:pk>/', views.editItem.as_view(), name='editItem'),
     path('addItem/', views.additemView.as_view(), name='addItem'),
-    path('itemDetails/<int:pk>/', views.itemDetailView.as_view(), name='ItemDetails'),
+    path('itemDetails/<int:pk>/', views.itemDetailView.as_view(), name='itemDetails'),
     path('deleteItem/<int:pk>/', views.deleteitem.as_view(), name='deleteItem'),
 
     path('allContainers/', views.containerListView.as_view(), name='container_list'),
@@ -20,12 +20,12 @@ urlpatterns = [
     path('editContainer/<int:pk>/', views.editContainer.as_view(), name='editContainer'),
     path('addContainer/', views.addcontainerView.as_view(), name='addCont'),
     path('contents/<int:pk>/', views.contentsView.as_view(), name='contents'),
-    
+
     path('season/<int:pk>/', views.seasonView.as_view(), name='season'),
 
-    path('editIC/<int:pk>/', views.editIC.as_view(), name='editIC'),
-    path('addIC/', views.addICView.as_view(), name='I2C'),
-    
+    path('editIC/<int:pk>/', views.editIC.as_view(), name='editI2C'),
+    path('addIC/', views.addICView.as_view(), name='addI2C'),
+    path('deleteIC/', views.deleteICView.as_view(), name='deleteI2C'),
 
 
     path('test/', views.test.as_view(), name='test'),

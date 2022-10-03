@@ -25,7 +25,7 @@ function doInputOutput() {
     // Holiday variables
     let icons = document.querySelectorAll('.sub_icons');
     // Holiday Styling
-    if (icons != null || icons != undefined) {
+    if (icons != null && icons != undefined && icons.length != 0) {
         for (i in icons) {
             switch (month) {
                 case 'December':
@@ -35,8 +35,7 @@ function doInputOutput() {
                     icons[i].classList.add('halloween');
                     break;
                 case 'February':
-                    icons[i].classList.toggle('valentines');
-                    console.log(icons[i]);
+                    icons[i].classList.add('valentines');
                     break;
                 case 'November':
                     icons[i].classList.add('thanksgiving');
@@ -46,6 +45,9 @@ function doInputOutput() {
                     break;
             }
         }
+    }
+    else {
+        
     }
 
 
@@ -82,7 +84,7 @@ function listSearch() {
 
 function listSearchTable() {
     // Declare variables
-    let input, filter, table, tr, td, txtValue;
+    let input, filter, td, txtValue;
     input = document.getElementById('myInput');
     filter = input.value.toUpperCase();
     td = document.getElementsByClassName('namecol');
@@ -127,4 +129,4 @@ window.onclick = function(event) {
       }
     }
   }
-}
+};
