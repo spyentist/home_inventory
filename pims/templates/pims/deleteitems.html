@@ -1,10 +1,13 @@
 {% extends "base.html" %}
 {% load static %}
+
+{% block title %}Delete {{object.name}}{% endblock %}
+
 {% block main %}
 <!-- <h2>Delete {{object}}</h2> -->
 <form method="post">{% csrf_token %}
  
-    <p>Are you sure you want to delete all <strong>{{ object.quantity }} {{object.name}}</strong>?</p>
+    <p>Are you sure you want to delete <strong> {{object}}</strong>?</p>
      
     <input type="submit" class='submitbutton' value="Confirm">
 

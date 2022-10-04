@@ -9,44 +9,43 @@ function doInputOutput() {
 
     let display = weekDay + ", " + dayNum + " " + month + ", " + year;
 
-
-
-    document.getElementById("curdate").innerHTML = display;
+    //Footer information
+    document.getElementById("curdate").textContent = display;
     document.getElementById("year").innerHTML = year;
-
-
-    // month = 'January';
-    // month = 'December';
-    // month = 'October';
-    // month = 'February';
-    // month = 'November';
-
+    
     // Holiday variables
     let icons = document.querySelectorAll('.sub_icons');
     // Holiday Styling
-    if (icons != null || icons != undefined) {
-        for (i in icons) {
-            switch (month) {
-                case 'December':
-                    icons[i].classList.add("christmas");
-                    break;
-                case 'October':
-                    icons[i].classList.add('halloween');
-                    break;
-                case 'February':
-                    icons[i].classList.toggle('valentines');
-                    console.log(icons[i]);
-                    break;
-                case 'November':
-                    icons[i].classList.add('thanksgiving');
-                    break;
-                case 'January':
-                    icons[i].classList.add('wedding');
-                    break;
-            }
-        }
-    }
+    if (icons.length != 0) {
+        console.log(month);
+        icons.forEach( function (icon) {
+    switch (month) {
+        case 'January':
+            icon.classList.toggle('wedding');
+            break;
+        case 'February':
+            icon.classList.toggle('valentines');
+            break;    
+        case 'October':
+            icon.classList.toggle('halloween');
+            break;
+        case 'November':
+            icon.classList.toggle('thanksgiving');
+            break;
+        case 'December':
+            icon.classList.toggle("christmas");
+            break;       
+    }});}
 
+
+    // Add event listeners for javascript fluidity.
+    if(document.querySelector('#adaptiveMenu')){
+    document.querySelector('#adaptiveMenu').addEventListener('click', adaptiveMenu);
+    }
+    if(document.querySelector('#adaptiveSubMenu')){
+        document.querySelector('#adaptiveSubMenu').addEventListener('click', adaptiveSubMenu);
+    }
+        
 }
 
 
@@ -72,7 +71,7 @@ function listSearch() {
 
 function listSearchTable() {
     // Declare variables
-    let input, filter, table, tr, td, txtValue;
+    let input, filter, td, txtValue;
     input = document.getElementById('myInput');
     filter = input.value.toUpperCase();
     td = document.getElementsByClassName('namecol');
@@ -99,3 +98,22 @@ function adaptiveMenu() {
         links.className = "navigation";
     }
 }
+
+
+
+function adaptiveSubMenu() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// adaptiveSubMenu Undo
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    let dropdowns = document.getElementsByClassName("dropdown-content");
+    for (let i = 0; i < dropdowns.length; i++) {
+      let openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+};

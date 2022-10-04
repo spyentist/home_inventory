@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+{{ results.first.item }}
+{% endblock %}
+
+
+
+{% block main %}
+{% if results.results %}
+
+<p>{{ results.results.first.item }}</p>
+
+<div class="form__group">
+    <input type="text" class="form__field" placeholder="Seach for items..." name="search" onkeyup="listSearchTable()" id="myInput" />
+    <label for="search" class="form__label">Search for container or quantity...</label>
+</div>
+
+
+<table id='tableList'>
+    {% for item in results.results %}
+    <tr>
+        <td class='namecol'><a href="{% url 'pims:editI2C' item.id %}">{{ item.quantity}} in {{ item.container }} </a></td>
+        <td><a href="{% url 'pims:editI2C' item.id %}"> <img src="{% static 'pims/pencil.svg' %}" alt="edit icon" /></a></td>
+        <td><a href="{% url 'pims:editI2C' item.id %}"> <img src="{% static 'pims/trash.svg' %}" alt='delete icon'/> </a></td>
+    </tr>
+        {% endfor %}
+    </table>
+    <p>{{ results.total.total }} total</p>
+        {% else %}
+        <h1>There are no containers with this item in it.</h1>
+        {% endif %}
+        {% endblock %}

@@ -1,36 +1,41 @@
-
 @import url(//db.onlinewebfonts.com/c/9d0967bfe19937b123d26cde0ba6a217?family=Norwester);
-
-@font-face {
-    font-family: "Norwester";
-    src: url("//db.onlinewebfonts.com/t/9d0967bfe19937b123d26cde0ba6a217.eot");
-    src: url("//db.onlinewebfonts.com/t/9d0967bfe19937b123d26cde0ba6a217.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/9d0967bfe19937b123d26cde0ba6a217.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/9d0967bfe19937b123d26cde0ba6a217.woff") format("woff"), url("//db.onlinewebfonts.com/t/9d0967bfe19937b123d26cde0ba6a217.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/9d0967bfe19937b123d26cde0ba6a217.svg#Norwester") format("svg");
-}
-
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200&display=swap');
+@font-face {
+    font-family: "Norwester";
+    src: url("https://db.onlinewebfonts.com/t/9d0967bfe19937b123d26cde0ba6a217.eot");
+    src: url("https://db.onlinewebfonts.com/t/9d0967bfe19937b123d26cde0ba6a217.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/9d0967bfe19937b123d26cde0ba6a217.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/9d0967bfe19937b123d26cde0ba6a217.woff") format("woff"), url("//db.onlinewebfonts.com/t/9d0967bfe19937b123d26cde0ba6a217.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/9d0967bfe19937b123d26cde0ba6a217.svg#Norwester") format("svg");
+}
 :root {
-    /* --background-color: #0C3246; */
-    /* --background-color: #15577A; */
-    --background-color: #1A4860;
+    /* --background-color: #1A4860;  Old background color*/
+
+    --background-color: #122b53;
+    --header-color: #d9d9d9;
+
     --text-color: #B44418;
     --heading-color: #B44418;
-    /* --accent1-color: #0C3246; */
-    --link-color: #9DAD71;
+    --link-color: #B44418;
     --accent2-color: #FCEFEF;
     --font: "Dosis", sans-serif;
     --heading-font: "Norwester";
+
+    
 }
 
 /* HTML selectors */
 
 
-a, label {
+a, label, button {
     color: var(--link-color);
     text-decoration: none;
     font-family: var(--font);
     font-size: 2.5em;
     font-weight: 100;
+}
+
+body {
+    min-height: 100%;
+    position:relative;
 }
 
 footer {
@@ -41,15 +46,22 @@ footer {
     height: 3em;
     justify-content: center;
     align-content: center;
+    bottom: 0;
+    position: absolute;
+    left: 0;
+    right: 0;
 }
 
 header {
     display: grid;
     grid-template-columns: .85fr 1.15fr;
+    background-color: var(--header-color);
+    margin-bottom: 1.25em;
 }
 
 html {
     background-color: var(--background-color);
+    height: 100%;
 }
 
 h1 {
@@ -57,6 +69,7 @@ h1 {
     color: var(--heading-color);
     font-size: 2em;
     text-align: center;
+    margin: 0;
 }
 
 h2 {
@@ -67,7 +80,7 @@ h2 {
 }
 
 img {
-    width: 100%;
+    /* width: 100%; */
     height: 100%;
     filter: invert(100%);
 }
@@ -75,6 +88,7 @@ img {
 main {
     margin: 0 auto;
     text-align: center;
+    padding-bottom: 3em;
 }
 
 nav ul {
@@ -100,10 +114,15 @@ table {
     border-collapse: collapse;
 }
 
+textarea, select, input {
+    width: 20ch;
+}
+
 tr {
     border: 1px solid var(--accent2-color);
-    padding: 5px, 0 5px, 0;
+    padding: 5px 0 5px 0;
 }
+
 td {
     padding-left: 5px;
     padding-right: 5px;
@@ -116,23 +135,13 @@ ul {
     padding-left: 0;
 }
 
-
-/* 
-footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-} */
-
-
 /* Class Selectors */
-
 
 .links a,
 .menu_icon a {
     display: block;
     width: 100%;
-    background-color: var(--background-color);
+    background-color: var(--header-color);
     text-align: center;
     padding: 0;
 }
@@ -143,18 +152,20 @@ footer {
 
 .namecol {
     max-width: 50ch;
+    min-width: 15ch;
 }
 
 .navigation {
     display: flex;
     list-style: none;
-    height: 100%;
+    /* height: 100%; */
     justify-content: center;
     align-content: center;
 }
 
 .navigation a {
     text-align: center;
+    align-content: center;
     display: block;
 }
 
@@ -164,6 +175,36 @@ footer {
 
 .navigation li {
     display: none;
+}
+
+
+.sub-links {
+    display: none;
+}
+
+.sub-menu {
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    align-content: center;
+}
+
+.sub-menu a {
+    text-align: center;
+    display: block;
+}
+
+.sub-menu li:first-child {
+    display: block;
+}
+
+.sub-links:first-child{
+    display: block;
+    background-color: hotpink;
+}
+
+.sub-menu.responsive > li.sub-links, ul.sub-menu.responsive li.sub-links a {
+    display: block;
 }
 
 .responsive {
@@ -176,11 +217,50 @@ footer {
     display: block;
 }
 
+.dropbtn {
+    width:100%;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    color: var(--heading-color);
+    background-color: var(--header-color);
+}
+  
+.dropdown {
+    position: relative;
+    text-align: center;
+    float:right;
+}
+
+.dropdown-content {
+    right:0;
+    display: none;
+    position: absolute;
+    background-color: var(--header-color);
+    min-width: 200px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+  
+.dropdown-content a {
+    color: var(--text-color);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+  
+.dropdown-content a:hover {
+    background-color: #ddd
+}
+
+.show {display:block;}
+
+
+
 .sub_icons, .sub_icons.christmas, .sub_icons.halloween, .sub_icons.thanksgiving, .sub_icons.valentines {
-    height: 225px;
+    height: 175px;
     width: 100%;
     align-content: center;
-    /* margin-bottom: 1em; */
 }
 
 .sub_icons:nth-child(odd) {
@@ -312,3 +392,32 @@ footer {
     padding: 14px 40px;
     font-size: 1.5em;
 }
+
+
+/* ID Selectors */
+#pims_subhead {
+    display:none;
+}
+
+/* Psuedo Modifiers */
+
+::-webkit-scrollbar {
+    width: .75em;
+    /* height: 1em;  */
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: var(--header-color);
+    border-radius:  0 0 100vw 100vw;
+    /* margin-block: 0.5em;  */
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: var(--heading-color);
+    border: 0.15em solid var(--header-color);
+    border-radius: 100vw;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(120 100% 10% / 1);
+  }

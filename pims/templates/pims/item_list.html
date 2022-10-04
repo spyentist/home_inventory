@@ -1,5 +1,8 @@
 {% extends "base.html" %}
 {% load static %}
+
+{% block title %}All Items{% endblock %}
+
 {% block main %}
 <div class="form__group">
     <input type="text" class="form__field" placeholder="Seach for items..." name="search" onkeyup="listSearchTable()"
@@ -11,8 +14,7 @@
 
     {% for items in item %}
     <tr>
-        <td class='namecol'><a href="{% url 'pims:editItem' items.id %}">{{ items.name }} </a></td>
-        <td><a>{{ items.quantity }}</a></td>
+        <td class='namecol'><a href="{% url 'pims:itemDetails' items.id %}">{{ items.name }} </a></td>
         <td><a href="{% url 'pims:editItem' items.id %}"> <img src="{% static 'pims/pencil.svg' %}" alt="edit icon"/></a></td>
         <td><a href="{% url 'pims:deleteItem' items.id %}"> <img src="{% static 'pims/trash.svg' %}" alt='delete icon'/> </a></td>
     </tr>

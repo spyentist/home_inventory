@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block title %}Add an item to a container{% endblock %}
+
+
+
+{%  block main %}
+<h2>Add an Item</h2>
+<form method="post">
+{% csrf_token %}
+<p>
+    <label for="id_container">Container:</label> 
+    {{ form.container }}
+</p>
+<p>
+    <label for="id_item">Item:</label>
+    {{ form.item }}
+    <a href="#" id="" onclick="addItemPopup()"><img src = "{% static '/pims/icon-addlink.svg' %}"></a>
+
+<p>
+    <label for="id_quantity">Quantity:</label>
+    {{ form.quantity }}
+</p>
+<input type="submit" class='submitbutton' value="Add">
+</form>
+
+<script>
+    function addItemPopup() {
+        let newWindow = window.open('../addItem/', 'Add Item',  "width=800,height=600");
+        // newWindow.document.write("<p>This is 'MsgWindow'. I am 200px wide and 100px tall!</p>");
+        newWindow.document.append(`<button type="button" onclick="window.open('', '_self', ''); window.close();">Discard</button>`);
+    }
+</script>
+{% endblock %}
