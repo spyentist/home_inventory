@@ -51,12 +51,12 @@ class itemDetailView(generic.ListView):
     context_object_name = 'results'
     def get_queryset(self):
         results = item.objects.get(id=self.kwargs['pk']).item_container_set.all()
-        return results
-    #! feature update, find how many are stored in the system
+        total = item.objects.get(id=self.kwargs['pk']).item_container_set.all().aggregate(total=sum('quantity'))
+        return  {'results': results, 'total':total}
+
 
 
 # * Above views are working as desired
-
 
 
 

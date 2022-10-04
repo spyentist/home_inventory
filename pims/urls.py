@@ -28,6 +28,7 @@ urlpatterns = [
     path('deleteIC/', views.deleteICView.as_view(), name='deleteI2C'),
 
 
+    # Extra pages, to be removed in future
     path('test/', views.test.as_view(), name='test'),
     path('styleGuide/', views.styleGuide.as_view(), name='styleGuide'),
     path('sitePlan/', views.sitePlan.as_view(), name='sitePlan'),

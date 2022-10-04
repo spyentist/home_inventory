@@ -9,46 +9,33 @@ function doInputOutput() {
 
     let display = weekDay + ", " + dayNum + " " + month + ", " + year;
 
-
-
+    //Footer information
     document.getElementById("curdate").textContent = display;
     document.getElementById("year").innerHTML = year;
     
-
-
-    // month = 'January';
-    // month = 'December';
-    // month = 'October';
-    // month = 'February';
-    // month = 'November';
-
     // Holiday variables
     let icons = document.querySelectorAll('.sub_icons');
     // Holiday Styling
-    if (icons != null && icons != undefined && icons.length != 0) {
-        for (i in icons) {
-            switch (month) {
-                case 'December':
-                    icons[i].classList.add("christmas");
-                    break;
-                case 'October':
-                    icons[i].classList.add('halloween');
-                    break;
-                case 'February':
-                    icons[i].classList.add('valentines');
-                    break;
-                case 'November':
-                    icons[i].classList.add('thanksgiving');
-                    break;
-                case 'January':
-                    icons[i].classList.add('wedding');
-                    break;
-            }
-        }
-    }
-    else {
-        
-    }
+    if (icons.length != 0) {
+        console.log(month);
+        icons.forEach( function (icon) {
+    switch (month) {
+        case 'January':
+            icon.classList.toggle('wedding');
+            break;
+        case 'February':
+            icon.classList.toggle('valentines');
+            break;    
+        case 'October':
+            icon.classList.toggle('halloween');
+            break;
+        case 'November':
+            icon.classList.toggle('thanksgiving');
+            break;
+        case 'December':
+            icon.classList.toggle("christmas");
+            break;       
+    }});}
 
 
     // Add event listeners for javascript fluidity.
