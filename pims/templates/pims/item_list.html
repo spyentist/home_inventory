@@ -19,7 +19,9 @@
         <td><a href="{% url 'pims:deleteItem' items.id %}"> <img src="{% static 'pims/trash.svg' %}" alt='delete icon'/> </a></td>
     </tr>
     {% endfor %}
-
 </table>
+
+<p>Don't see the item you are looking for? Has it been created yet? </p>
+<p>Create it <a href="{% url 'pims:addItem' %}">here!</a></p>
 
 {% endblock %} 

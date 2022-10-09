@@ -19,6 +19,11 @@ from django.conf.urls.static import static
 from django.conf import settings
 from django.views.generic import RedirectView
 
+# print(dir(admin.site))
+admin.site.site_header = 'PIMS'
+admin.site.site_title = 'PIMS'
+admin.site.index_title = 'Welcome to PIMS admin'
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),

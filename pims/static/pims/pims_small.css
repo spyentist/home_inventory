@@ -8,28 +8,25 @@
 }
 :root {
     /* --background-color: #1A4860;  Old background color*/
-
     --background-color: #122b53;
     --header-color: #d9d9d9;
-
     --text-color: #B44418;
     --heading-color: #B44418;
     --link-color: #B44418;
     --accent2-color: #FCEFEF;
     --font: "Dosis", sans-serif;
     --heading-font: "Norwester";
-
-    
 }
 
 /* HTML selectors */
 
 
-a, label, button {
-    color: var(--link-color);
+a, button {
+    color:hotpink;
+    /* color: var(--link-color); */
     text-decoration: none;
     font-family: var(--font);
-    font-size: 2.5em;
+    /* font-size: 2.5em; */
     font-weight: 100;
 }
 
@@ -75,8 +72,16 @@ h1 {
 h2 {
     font-size: 3em;
     color: var(--heading-color);
+    font-family: var(--heading-font);
     margin: 0 auto;
     text-transform: Uppercase;
+}
+
+h3 {
+    font-size: 2em;
+    color: var(--heading-color);
+    font-family: var(--heading-font);
+    margin: 0 auto;
 }
 
 img {

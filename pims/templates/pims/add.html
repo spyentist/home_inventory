@@ -2,17 +2,14 @@
 {% load static %}
 
 
-{% block title %}Add an {% endblock %}
-
+{% block title %}{{ title }} {% endblock %}
 
 
 {%  block main %}
-<h2>Add a new object</h2>
+<h3>{{ title }}</h3>
 <form method="post">
 {% csrf_token %}
-<table>
-{{ form.as_table }}
-</table>
+{{ form.as_p }}
 <input type="submit" class='submitbutton' value="Add">
-</form>
+</form> 
 {% endblock %}

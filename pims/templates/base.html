@@ -1,57 +1,56 @@
 {% load static %}
 <!DOCTYPE html>
+<html lang='en'>
 
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{% block title %}PIMS{% endblock %}</title>
-  <link rel="stylesheet" href="{% static 'pims/normalize.css' %}" defer>
+  <link rel="stylesheet" href="{% static 'pims/normalize.css' %}">
   <link rel="stylesheet" href="{% static 'pims/pims_small.css' %}?{% now 'U' %}">
-  <link rel="stylesheet" href="{% static 'pims/pims_medium.css' %}?{% now 'U' %}" defer>
-  <link rel="stylesheet" href="{% static 'pims/pims_large.css' %}?{% now 'U' %}" defer> 
-  <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200&family=Montserrat:wght@200&display=swap" rel="stylesheet" defer>
+  <link rel="stylesheet" href="{% static 'pims/pims_medium.css' %}?{% now 'U' %}">
+  <link rel="stylesheet" href="{% static 'pims/pims_large.css' %}?{% now 'U' %}"> 
+  <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200&family=Montserrat:wght@200&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" sizes="16x16" href="{% static 'pims/favicon.ico' %}">
-  <script type="text/javascript" src="{% static 'pims/main.js' %}" defer></script>
+  <script src="{% static 'pims/main.js' %}" defer></script>
   {%block head%}{% endblock%}
 </head>
 
 <body onload="doInputOutput()">
 
-  <header>
+<header>
     <a href="{% url 'pims:index' %}">
-      <h1>PIMS</h1>
+        <h1>PIMS</h1>
     </a>
     <nav>
-      <ul class="navigation" id="navigation">
-        <li class="menu_icon"><a id="adaptiveMenu">&#9776;</a></li>
-        <li class="links"><a href="{% url 'pims:index' %}">Home</a></li>
-        <li class="links"><a href="{% url 'pims:item_list' %}">All Items</a></li>
-        <li class="links"><a href="{% url 'pims:container_list' %}">Containers</a></li>
-        <li class="dropdown.links"><button id="adaptiveSubMenu" class="dropbtn">Add</button>
-          <div id="myDropdown" class="dropdown-content">
-            <a href="{% url 'pims:addItem' %}">Items</a>
-            <a href="{% url 'pims:addCont' %}">Container</a>
-            <a href="{% url 'pims:addI2C' %}">Items in Container</a>
-          </div>
-        </li>
-
-      </ul>
+        <ul class="navigation" id="navigation">
+            <li class="menu_icon"><a id="adaptiveMenu">&#9776;</a></li>
+            <li class="links"><a href="{% url 'pims:index' %}">Home</a></li>
+            <li class="links"><a href="{% url 'pims:item_list' %}">All Items</a></li>
+            <li class="links"><a href="{% url 'pims:container_list' %}">Containers</a></li>
+            <li class="links"><a href="{% url 'pims:container_list' %}">Items in Containers</a></li>
+            <li class="dropdown.links"><button id="adaptiveSubMenu" class="dropbtn">Add</button>
+                <div id="myDropdown" class="dropdown-content">
+                    <a href="{% url 'pims:addItem' %}">Items</a>
+                    <a href="{% url 'pims:addCont' %}">Container</a>
+                    <a href="{% url 'pims:addI2C' %}">Items in Container</a>
+                </div>
+            </li>
+        </ul>
     </nav>
+</header>
 
-  </header>
 
-
-  <main>
+<main>
     <h2 id="pims_subhead">Price Inventory Management System</h2>
     {% block main %}
     {% endblock %}
-  </main>
+</main>
 
-  <footer>
+<footer>
     &copy; <span id="year"></span> &starf; <span>PIMS</span> &starf; <span id="curdate"></span>
     <span><a href="{% url 'pims:styleGuide' %}" style="font-size:1em;">Style Guide</a></span>
     <span><a href="{% url 'pims:sitePlan' %}" style="font-size:1em;">Site Plan</a></span>
-    
-  </footer>
+</footer>
 </body>
 </html>
