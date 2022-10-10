@@ -22,11 +22,10 @@
 
 
 a, button {
-    color:hotpink;
-    /* color: var(--link-color); */
+    color: var(--link-color);
     text-decoration: none;
     font-family: var(--font);
-    /* font-size: 2.5em; */
+    font-size: 2.5em;
     font-weight: 100;
 }
 
@@ -96,15 +95,6 @@ main {
     padding-bottom: 3em;
 }
 
-nav ul {
-    list-style: none;
-    padding: 0 0 0 0;
-}
-
-nav ul li a {
-    padding: .5em .25em;
-}
-
 p {
     color: var(--text-color);
     font-size: 2em;
@@ -163,7 +153,7 @@ ul {
 .navigation {
     display: flex;
     list-style: none;
-    /* height: 100%; */
+    height: 100%;
     justify-content: center;
     align-content: center;
 }
@@ -259,8 +249,6 @@ ul {
 }
 
 .show {display:block;}
-
-
 
 .sub_icons, .sub_icons.christmas, .sub_icons.halloween, .sub_icons.thanksgiving, .sub_icons.valentines {
     height: 175px;
@@ -408,21 +396,19 @@ ul {
 
 ::-webkit-scrollbar {
     width: .75em;
-    /* height: 1em;  */
-  }
-  
-  ::-webkit-scrollbar-track {
+}
+
+::-webkit-scrollbar-track {
     background: var(--header-color);
     border-radius:  0 0 100vw 100vw;
-    /* margin-block: 0.5em;  */
-  }
-  
-  ::-webkit-scrollbar-thumb {
+}
+
+::-webkit-scrollbar-thumb {
     background: var(--heading-color);
     border: 0.15em solid var(--header-color);
     border-radius: 100vw;
-  }
-  
-  ::-webkit-scrollbar-thumb:hover {
+}
+
+::-webkit-scrollbar-thumb:hover {
     background: hsl(120 100% 10% / 1);
-  }
+}
