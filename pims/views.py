@@ -74,7 +74,7 @@ class containerList(generic.ListView):
     model = container
     context_object_name = 'container'
     def get_queryset(self):
-        return container.objects.all().order_by('location')
+        return container.objects.all().order_by('location', 'row_letter')
 
 # http://localhost:8000/pims/contents/#/
 class contents(generic.ListView):
@@ -115,9 +115,9 @@ class deleteContainer(generic.DeleteView):
 
 # * Above views are working as desired
 
-
-
-
+'''
+What if a location was able to have multiple containers in it. Need to create new model to represent that. 
+'''
 
 
 
