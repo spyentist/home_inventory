@@ -20,13 +20,16 @@ urlpatterns = [
     path('addContainer/', views.addContainer.as_view(), name='addCont'),
     path('contents/<int:pk>/', views.contents.as_view(), name='contents'),
 
-    path('season/<int:pk>/', views.season.as_view(), name='season'),
-
+    path('allICs/', views.ICList.as_view(), name='listI2C'),
     path('editIC/<int:pk>/', views.editIC.as_view(), name='editI2C'),
     path('addIC/', views.addIC.as_view(), name='addI2C'),
     path('deleteIC/', views.deleteIC.as_view(), name='deleteI2C'),
+    path('ICDetails/<int:pk>', views.ICDetails.as_view(), name='I2CDetails'),
 
 
+
+
+    path('season/<int:pk>/', views.season.as_view(), name='season'),
     # Extra pages, to be removed in future
     path('test/', views.test.as_view(), name='test'),
     path('styleGuide/', views.styleGuide.as_view(), name='styleGuide'),

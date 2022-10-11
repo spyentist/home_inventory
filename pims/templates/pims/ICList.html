@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+Base Template
+{% endblock %}
+
+
+
+{% block main %}
+
+<div class="form__group">
+    <input type="text" class="form__field" placeholder="Seach for items..." name="search" onkeyup="listSearchTable()"
+        id="myInput" />
+    <label for="search" class="form__label">Search for Items...</label>
+</div>
+
+<table id='tableList'>
+
+    {% for items in IC %}
+    <tr>
+        <td class='namecol'><a href="{% url 'pims:I2CDetails' items.id %}">{{ items }} </a></td>
+        <td><a href="{% url 'pims:editItem' items.id %}"> <img src="{% static 'pims/pencil.svg' %}" alt="edit icon"/></a></td>
+        <td><a href="{% url 'pims:deleteItem' items.id %}"> <img src="{% static 'pims/trash.svg' %}" alt='delete icon'/> </a></td>
+    </tr>
+    {% endfor %}
+</table>
+
+<p>Don't see the relationship you are looking for?</p>
+<p>Has it been created yet? </p>
+<a href="{% url 'pims:addI2C' %}" class="createHere">Create it here!</a>
+
+
+{% endblock %} 

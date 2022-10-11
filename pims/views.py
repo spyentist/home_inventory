@@ -53,10 +53,8 @@ class addItem(generic.CreateView):
     }
     success_url="../allItems/"
     def get_context_data(self, **kwargs):
-        print(self)
         context = super().get_context_data(**kwargs)
         context["title"] = "Add an Item"
-        print(context)
         return context
 
 # http://localhost:8000/pims/deleteItem/12/
@@ -82,10 +80,10 @@ class contents(generic.ListView):
     model = container
     context_object_name = 'container'
     def get_queryset(self):
-        newContainer = container.objects.get(id=self.kwargs['pk'])
-        return newContainer.item_container_set.all()
+        return container.objects.get(id=self.kwargs['pk']).item_container_set.all()
+        
 
-# 
+# http://localhost:8000/pims/editContainer/#/
 class editContainer(generic.UpdateView):
     template_name = "pims/edit.html"
     model = container
@@ -93,7 +91,7 @@ class editContainer(generic.UpdateView):
     form_class = containerForm
     success_url="../../allContainers/"
 
-#
+# http://localhost:8000/pims/addContainer/
 class addContainer(generic.CreateView):
     model = container
     template_name = 'pims/add.html'
@@ -104,7 +102,7 @@ class addContainer(generic.CreateView):
         context["title"] = "Add a Container"
         return context
 
-#
+# http://localhost:8000/pims/deleteContainer/#/
 class deleteContainer(generic.DeleteView):
     model = container
     template_name = 'pims/deleteitems.html'
@@ -121,6 +119,17 @@ What if a location was able to have multiple containers in it. Need to create ne
 
 
 
+class ICList(generic.ListView):
+    model = item_container
+    template_name = "pims/ICList.html"
+    context_object_name = 'IC'
+    def get_queryset(self):
+        return item_container.objects.all()
+    
+
+
+
+
 
 
 class editIC(generic.UpdateView):
@@ -134,7 +143,6 @@ class editIC(generic.UpdateView):
     }
     success_url="../allItems/"
     #TODO verify this is working correctly
-
 
 
 class addIC(generic.CreateView):
@@ -159,6 +167,15 @@ class deleteIC(generic.UpdateView):
         'container'
     }
     success_url="../allItems/"
+
+
+class ICDetails(generic.DetailView):
+    model = item_container
+    template_name = "pims/"
+
+
+
+
 
 class styleGuide(generic.ListView):
     template_name = 'pims/styleGuide.html'

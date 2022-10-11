@@ -3,6 +3,9 @@
 {% block title %}Contents{% endblock %}
 
 {% block main %}
+
+<a href="{% url 'pims:editContainer' container.first.container.id %}">{{container.first.container}}</a>
+
 <div class="form__group">
 <input type="text" class="form__field" placeholder="Seach for items..." name="search" onkeyup="listSearchTable()" id="myInput"/>
 <label for="search" class="form__label">Search for Items...</label>
