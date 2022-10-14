@@ -28,7 +28,7 @@
             <li class="links"><a href="{% url 'pims:index' %}">Home</a></li>
             <li class="links"><a href="{% url 'pims:item_list' %}">All Items</a></li>
             <li class="links"><a href="{% url 'pims:container_list' %}">Containers</a></li>
-            <li class="links"><a href="{% url 'pims:listI2C' %}">Items in Containers</a></li>
+            {% comment %} <li class="links"><a href="{% url 'pims:listI2C' %}">Items in Containers</a></li> {% endcomment %}
             <li class="dropdown.links"><button id="adaptiveSubMenu" class="dropbtn">Add</button>
                 <div id="myDropdown" class="dropdown-content">
                     <a href="{% url 'pims:addItem' %}">Items</a>

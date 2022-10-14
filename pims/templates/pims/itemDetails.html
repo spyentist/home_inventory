@@ -21,9 +21,9 @@
 <table id='tableList'>
     {% for item in results.results %}
     <tr>
-        <td class='namecol'><a>{{ item.quantity}} in {{ item.container }}</a></td>
+        <td class='namecol'><a href={% url 'pims:editI2C' item.id %}>{{ item.quantity}} in {{ item.container }}</a></td>
         <td><a href="{% url 'pims:editI2C' item.id %}"> <img src="{% static 'pims/pencil.svg' %}" alt="edit icon" /></a></td>
-        <td><a href="{% url 'pims:editI2C' item.id %}"> <img src="{% static 'pims/trash.svg' %}" alt='delete icon'/> </a></td>
+        <td><a href="{% url 'pims:deleteI2C' item.id %}"> <img src="{% static 'pims/trash.svg' %}" alt='delete icon'/> </a></td>
     </tr>
         {% endfor %}
     </table>

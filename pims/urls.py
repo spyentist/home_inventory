@@ -23,7 +23,7 @@ urlpatterns = [
     path('allICs/', views.ICList.as_view(), name='listI2C'),
     path('editIC/<int:pk>/', views.editIC.as_view(), name='editI2C'),
     path('addIC/', views.addIC.as_view(), name='addI2C'),
-    path('deleteIC/', views.deleteIC.as_view(), name='deleteI2C'),
+    path('deleteIC/<int:pk>', views.deleteIC.as_view(), name='deleteI2C'),
     path('ICDetails/<int:pk>', views.ICDetails.as_view(), name='I2CDetails'),
 
 

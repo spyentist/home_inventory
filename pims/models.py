@@ -36,6 +36,16 @@ class container(models.Model):
     season = models.ManyToManyField(season, blank=True)
     is_partial = models.CharField(max_length=1,choices=is_partial_choices, blank=True, default='N')
     items = models.ManyToManyField(item, through='item_container')
+    # slug = models.SlugField()
+
+    # def save(self, *args, **kwargs):
+    #     shortlocation
+    #     for letter in self.location.split(): 
+    #         shortLocation += letter
+    #     shortlocation += self.row_letter
+    #     shortlocation += self.column_numberz
+    #     self.slug = shortlocation
+    #     super(container, self).save(*args, **kwargs)
     
     def __str__(self):
         return f"{self.location}-{self.row_letter}-{self.column_number}"

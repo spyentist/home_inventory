@@ -60,7 +60,7 @@ class addItem(generic.CreateView):
 # http://localhost:8000/pims/deleteItem/12/
 class deleteitem(generic.DeleteView):
     model = item
-    template_name = 'pims/deleteitems.html'
+    template_name = 'pims/delete.html'
     success_url = "../../allItems/"
 
 
@@ -105,10 +105,18 @@ class addContainer(generic.CreateView):
 # http://localhost:8000/pims/deleteContainer/#/
 class deleteContainer(generic.DeleteView):
     model = container
-    template_name = 'pims/deleteitems.html'
+    template_name = 'pims/delete.html'
     success_url = "../../allContainers/"
 
-
+class addIC(generic.CreateView):
+    model = item_container
+    template_name = 'pims/additemscontainer.html'
+    fields = {
+        'item',
+        'quantity',
+        'container'
+    }
+    success_url="../allItems/"
 
 
 # * Above views are working as desired
@@ -145,20 +153,12 @@ class editIC(generic.UpdateView):
     #TODO verify this is working correctly
 
 
-class addIC(generic.CreateView):
-    model = item_container
-    template_name = 'pims/additemscontainer.html'
-    fields = {
-        'item',
-        'quantity',
-        'container'
-    }
-    success_url="../allItems/"
+
     #TODO verify this is working correctly
 
 
 class deleteIC(generic.UpdateView):
-    template_name = "pims/edit.html"
+    template_name = "pims/delete.html"
     model = item_container
     context_object_name = 'item'
     fields = {
@@ -191,7 +191,8 @@ class test(generic.ListView):
     template_name = 'pims/test.html'
     model = item
     context_object_name = 'item'
-    def get_queryset(self):
+    def get_queryset(self): 
+
         return item.objects.all().order_by('name')
 
 
