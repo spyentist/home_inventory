@@ -108,6 +108,8 @@ class deleteContainer(generic.DeleteView):
     template_name = 'pims/delete.html'
     success_url = "../../allContainers/"
 
+
+# http://127.0.0.1:8000/pims/addIC/
 class addIC(generic.CreateView):
     model = item_container
     template_name = 'pims/additemscontainer.html'
@@ -116,7 +118,46 @@ class addIC(generic.CreateView):
         'quantity',
         'container'
     }
-    success_url="../allItems/"
+    success_url="../allICs/"
+    
+
+# http://127.0.0.1:8000/pims/allICs/
+class ICList(generic.ListView):
+    model = item_container
+    template_name = "pims/ICList.html"
+    context_object_name = 'IC'
+    def get_queryset(self):
+        return item_container.objects.all()
+# This one works.... Not sure if it is going to be utilized in the actual program. Good for troubleshooting
+
+# http://127.0.0.1:8000/pims/editIC/1960/
+class editIC(generic.UpdateView):
+    template_name = "pims/edit.html"
+    model = item_container
+    context_object_name = 'item'
+    fields = {
+        'item',
+        'quantity',
+        'container'
+    }
+    success_url="../../allICs/"
+
+# http://127.0.0.1:8000/pims/deleteIC/1943
+class deleteIC(generic.DeleteView):
+    template_name = "pims/delete.html"
+    model = item_container
+    context_object_name = 'item'
+    fields = {
+        'item',
+        'quantity',
+        'container'
+    }
+    success_url="../allICs/"
+
+
+class ICDetails(generic.DetailView):
+    model = item_container
+    template_name = "pims/"
 
 
 # * Above views are working as desired
@@ -127,51 +168,10 @@ What if a location was able to have multiple containers in it. Need to create ne
 
 
 
-class ICList(generic.ListView):
-    model = item_container
-    template_name = "pims/ICList.html"
-    context_object_name = 'IC'
-    def get_queryset(self):
-        return item_container.objects.all()
-    
 
 
 
 
-
-
-class editIC(generic.UpdateView):
-    template_name = "pims/edit.html"
-    model = item_container
-    context_object_name = 'item'
-    fields = {
-        'item',
-        'quantity',
-        'container'
-    }
-    success_url="../allItems/"
-    #TODO verify this is working correctly
-
-
-
-    #TODO verify this is working correctly
-
-
-class deleteIC(generic.UpdateView):
-    template_name = "pims/delete.html"
-    model = item_container
-    context_object_name = 'item'
-    fields = {
-        'item',
-        'quantity',
-        'container'
-    }
-    success_url="../allItems/"
-
-
-class ICDetails(generic.DetailView):
-    model = item_container
-    template_name = "pims/"
 
 
 

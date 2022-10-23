@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block title %}
-Base Template
+I2C List
 {% endblock %}
 
 
@@ -10,8 +10,7 @@ Base Template
 {% block main %}
 
 <div class="form__group">
-    <input type="text" class="form__field" placeholder="Seach for items..." name="search" onkeyup="listSearchTable()"
-        id="myInput" />
+    <input type="text" class="form__field" placeholder="Seach for items..." name="search" onkeyup="listSearchTable()" id="myInput" />
     <label for="search" class="form__label">Search for Items...</label>
 </div>
 
@@ -20,8 +19,8 @@ Base Template
     {% for items in IC %}
     <tr>
         <td class='namecol'><a href="{% url 'pims:I2CDetails' items.id %}">{{ items }} </a></td>
-        <td><a href="{% url 'pims:editItem' items.id %}"> <img src="{% static 'pims/pencil.svg' %}" alt="edit icon"/></a></td>
-        <td><a href="{% url 'pims:deleteItem' items.id %}"> <img src="{% static 'pims/trash.svg' %}" alt='delete icon'/> </a></td>
+        <td><a href="{% url 'pims:editI2C' items.id %}"> <img src="{% static 'pims/pencil.svg' %}" alt="edit icon"/></a></td>
+        <td><a href="{% url 'pims:deleteI2C' items.id %}"> <img src="{% static 'pims/trash.svg' %}" alt='delete icon'/> </a></td>
     </tr>
     {% endfor %}
 </table>

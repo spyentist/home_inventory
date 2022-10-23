@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block title %}Contents{% endblock %}
 
@@ -16,9 +17,10 @@
    
         {% for contents in container %}
         <tr>
-        <td class='namecol'><a href="{% url 'pims:editItem' contents.id %}">{{ contents.item }} </a></td>
-        <td><a href="{% url 'pims:editItem' contents.id %}">{{ contents.quantity }}</a></td>
-        <td><a href="{% url 'pims:editItem' contents.id %}">edit</a></td>
+        <td class='namecol'><a href="{% url 'pims:editItem' contents.item.id %}">{{ contents.item }} </a></td>
+        <td><a href="{% url 'pims:editI2C' contents.id %}">{{ contents.quantity }}</a></td>
+        <td><a href="{% url 'pims:editI2C' contents.id %}"> <img src="{% static 'pims/pencil.svg' %}" alt="edit icon"/></a></td>
+        <td><a href="{% url 'pims:deleteI2C' contents.id %}"> <img src="{% static 'pims/trash.svg' %}" alt='delete icon'/> </a></td>
         </tr>
         {% endfor %}
     
