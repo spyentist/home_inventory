@@ -80,7 +80,7 @@ class contents(generic.ListView):
     model = container
     context_object_name = 'container'
     def get_queryset(self):
-        return container.objects.get(id=self.kwargs['pk']).item_container_set.all()
+        return container.objects.get(id=self.kwargs['pk'])
         
 
 # http://localhost:8000/pims/editContainer/#/
@@ -157,7 +157,7 @@ class deleteIC(generic.DeleteView):
 
 class ICDetails(generic.DetailView):
     model = item_container
-    template_name = "pims/"
+    template_name = "pims/" 
 
 
 # * Above views are working as desired

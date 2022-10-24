@@ -5,24 +5,26 @@
 
 {% block main %}
 
-<a href="{% url 'pims:editContainer' container.first.container.id %}">{{container.first.container}}</a>
+<a href="{% url 'pims:editContainer' container.id %}">{{container}}</a>
+
+{% comment %} Bug that does not list the ID of a container when there is nothing in the contaienr {% endcomment %}
 
 <div class="form__group">
 <input type="text" class="form__field" placeholder="Seach for items..." name="search" onkeyup="listSearchTable()" id="myInput"/>
 <label for="search" class="form__label">Search for Items...</label>
 </div>
 
-{% if container %}
+{% if container.item_container_set %}
 <table id='tableList'>
-   
-        {% for contents in container %}
-        <tr>
-        <td class='namecol'><a href="{% url 'pims:editItem' contents.item.id %}">{{ contents.item }} </a></td>
-        <td><a href="{% url 'pims:editI2C' contents.id %}">{{ contents.quantity }}</a></td>
-        <td><a href="{% url 'pims:editI2C' contents.id %}"> <img src="{% static 'pims/pencil.svg' %}" alt="edit icon"/></a></td>
-        <td><a href="{% url 'pims:deleteI2C' contents.id %}"> <img src="{% static 'pims/trash.svg' %}" alt='delete icon'/> </a></td>
-        </tr>
-        {% endfor %}
+
+	{% for contents in container.item_container_set.all %}
+	<tr>
+	<td class='namecol'><a href="{% url 'pims:editItem' contents.item.id %}">{{ contents.item }} </a></td>
+	<td><a href="{% url 'pims:editI2C' contents.id %}">{{ contents.quantity }}</a></td>
+	<td><a href="{% url 'pims:editI2C' contents.id %}"> <img src="{% static 'pims/pencil.svg' %}" alt="edit icon"/></a></td>
+	<td><a href="{% url 'pims:deleteI2C' contents.id %}"> <img src="{% static 'pims/trash.svg' %}" alt='delete icon'/> </a></td>
+	</tr>
+	{% endfor %}
     
 </table>
 {% else %}
