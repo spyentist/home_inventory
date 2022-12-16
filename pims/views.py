@@ -167,8 +167,18 @@ What if a location was able to have multiple containers in it. Need to create ne
 '''
 
 
-
-
+#TODO
+class season(generic.ListView):
+    model = season
+    template_name = 'pims/season.html'
+    context_object_name = 'season'
+    def get_queryset(self):
+        newSeason = season.objects.get(id=self.kwargs['pk'])
+        return newSeason.container.all()
+    # def get_context_data(self, **kwargs):
+    #     context = super().get_context_data(**kwargs)
+    #     context['item'] = item.objects.all()
+    #     return context    
 
 
 
@@ -194,17 +204,3 @@ class test(generic.ListView):
     def get_queryset(self): 
 
         return item.objects.all().order_by('name')
-
-
-#TODO
-class season(generic.ListView):
-    model = season
-    template_name = 'pims/season.html'
-    context_object_name = 'season'
-    def get_queryset(self):
-        newSeason = season.objects.get(id=self.kwargs['pk'])
-        return newSeason.container.all()
-    # def get_context_data(self, **kwargs):
-    #     context = super().get_context_data(**kwargs)
-    #     context['item'] = item.objects.all()
-    #     return context
