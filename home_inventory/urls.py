@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
-from django.conf.urls.static import static
+from django.conf.urls.static import static, serve
 from django.conf import settings
 from django.views.generic import RedirectView
 
@@ -30,5 +30,6 @@ urlpatterns = [
     # path('', include('pims.urls')),
     path('', RedirectView.as_view(url='pims/')),
     path('pims/', include('pims.urls')),
+    path('static/<path:path>/', serve, {'document_root': settings.STATIC_ROOT, }),
 ]  + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 

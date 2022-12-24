@@ -1,0 +1,67 @@
+@media screen and (min-width: 40em) {
+
+    /* HTML Selectors */
+
+    header {
+        grid-template-columns: .75fr 1.25fr;
+    }
+
+    label {
+        font-size: 1.5em;
+    }
+
+    nav {
+        align-content: center;
+    }
+
+    /* Class Selectors */
+
+    
+    .block-main {
+        grid-column: 2/3;
+    }
+
+    .form__group {
+        width: 30%;
+    }
+
+    .grid {
+        display:grid;
+        grid-template-columns: 1fr 5fr;
+    }
+
+    .icon_group {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    .navigation {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        row-gap: 50px;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        margin: 0;
+    }
+    
+    .navigation li {
+        display: flex;
+    }
+    
+    .navigation li:first-child {
+        display: none;
+    }
+
+    .sub_icons, .sub_icons.christmas, .sub_icons.halloween, .sub_icons.thanksgiving, .sub_icons.valentines {
+        height: 225px;
+    }
+
+    .vert-align {
+        position:absolute;
+        writing-mode: vertical-rl;
+        text-orientation: upright;
+        font-size: 10em;
+        margin: 0 auto;
+    }
+
+    
+}

@@ -3,6 +3,17 @@
 
 {% block title %}Contents{% endblock %}
 
+{% block head %}
+<!-- (A) LOAD QRCODEJS LIBRARY -->
+<!-- https://cdnjs.com/libraries/qrcodejs -->
+<!-- https://github.com/davidshimjs/qrcodejs -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+{% endblock head %}
+
+
+
+
 {% block main %}
 
 <a href="{% url 'pims:editContainer' container.id %}">{{container}}</a>
@@ -30,6 +41,36 @@
 {% else %}
 <h1>There are no items in this container.</h1>
 {% endif %}
+
+<!-- (B) QR CODE HERE -->
+<div id="printable">
+	<div id="qrcode"></div>
+  </div>
+  <button id="qrprint">Print</button>
+   
+  <!-- (C) CREATE QR CODE ON PAGE LOAD -->
+  <script>
+  window.addEventListener("load", () => {
+	// (C1) CREATE QR
+	var qrc = new QRCode(document.getElementById("qrcode"), {
+		text: "http://192.168.1.4{{ request.get_full_path }}",
+		width: 100,
+		height: 100
+	  })});
+  
+	// (C2) PRINT
+	document.getElementById("qrprint").onclick = () => {
+	  var printwin = window.open("");
+	  printwin.document.write(document.getElementById("printable").innerHTML);
+	  printwin.stop();
+	  let qr = printwin.document.querySelector("#qrcode img");
+	  qr.addEventListener("load", () => {
+		printwin.print();
+		printwin.close();
+	  });
+	};
+
+  </script>
 
 </div>
 {% endblock %}

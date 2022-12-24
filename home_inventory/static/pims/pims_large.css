@@ -1,0 +1,29 @@
+@media only screen and (min-width: 64em) {
+
+    /* HTML Selectors */
+
+    ul {
+        margin: 0;
+    }
+
+    /* Class Selectors */
+    
+    .form__group {
+        width: 20%;
+    }
+    
+    .icon_group {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+
+    .navigation {
+        display: flex;
+    }
+
+    /* ID Selectors */
+
+    #pims_subhead{
+        display:block;
+    }
+}
+

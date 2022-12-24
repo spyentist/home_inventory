@@ -5,3 +5,4 @@ pims/logs/*
 docker-compose.yml
 docker-compose.*.yml
 *.qr.*
+.env

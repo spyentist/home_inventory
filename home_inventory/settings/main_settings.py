@@ -80,25 +80,7 @@ WSGI_APPLICATION = 'home_inventory.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASES = {
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.mysql',
-    #     'NAME': os.environ.get('mysql_NAME'),
-    #     'USER': os.environ.get('mysql_USER'),
-    #     'PASSWORD': os.environ.get('mysql_PASSWORD'),
-    #     'HOST': 'db',
-    #     'PORT': '3306',
-    # },
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'inventory',
-        'USER': 'root',
-        'PASSWORD': 'Password',
-        'HOST': '127.0.0.1',
-        'PORT': '3306',
-    }
-
-}
+DATABASES = {}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -139,6 +121,10 @@ USE_TZ = True
 
 
 STATIC_URL = '/static/'
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'staticfiles'), ]
 
 
 
