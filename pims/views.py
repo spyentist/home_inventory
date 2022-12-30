@@ -72,7 +72,7 @@ class containerList(generic.ListView):
     model = container
     context_object_name = 'container'
     def get_queryset(self):
-        return container.objects.all().order_by('location', 'row_letter')
+        return container.objects.all().order_by('location', 'row_letter','column_number')
 
 # http://localhost:8000/pims/contents/#/
 class contents(generic.ListView):
@@ -119,6 +119,10 @@ class addIC(generic.CreateView):
         'container'
     }
     success_url="../allICs/"
+    #TODO add a search feature to the dropdown fields
+    #TODO make batch inserts possible?? i.e. add multiple items to one container at the same time
+    #TODO fix css for mobile view
+
     
 
 # http://127.0.0.1:8000/pims/allICs/

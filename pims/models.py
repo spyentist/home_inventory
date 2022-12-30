@@ -19,6 +19,13 @@ class item(models.Model):
     class Meta:
         ordering=['name']
 
+    def save(self, *args, **kwargs):
+        self.name.title()
+        super(item, self).save(*args, **kwargs)
+
+    
+
+
     # def save(self, *args, **kwargs):
     #     self.slug = slugify(self.name)
     #     super(item, self).save(*args, **kwargs)
@@ -36,15 +43,6 @@ class container(models.Model):
     is_partial = models.CharField(max_length=1,choices=is_partial_choices, blank=True, default='N')
     items = models.ManyToManyField(item, through='item_container')
     # slug = models.SlugField()
-
-    # def save(self, *args, **kwargs):
-    #     shortlocation
-    #     for letter in self.location.split(): 
-    #         shortLocation += letter
-    #     shortlocation += self.row_letter
-    #     shortlocation += self.column_numberz
-    #     self.slug = shortlocation
-    #     super(container, self).save(*args, **kwargs)
     
     def __str__(self):
         return f"{self.location}-{self.row_letter}-{self.column_number}"
@@ -55,7 +53,7 @@ class container(models.Model):
         super(container, self).save(*args, **kwargs)
     
     class Meta:
-        ordering = ['location']
+        ordering = ['location', 'row_letter', 'column_number']
 
 
 class item_container(models.Model):
