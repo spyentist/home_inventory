@@ -14,7 +14,7 @@
 
     {% for items in item %}
     <tr>
-        <td class='namecol'><a href="{% url 'pims:itemDetails' items.id %}">{{ items.name }} </a></td>
+        <td class='namecol'><a href="{% url 'pims:itemDetails' items.id %}">{{ items.name|title }} </a></td>
         <td><a href="{% url 'pims:editItem' items.id %}"> <img src="{% static 'pims/pencil.svg' %}" alt="edit icon"/></a></td>
         <td><a href="{% url 'pims:deleteItem' items.id %}"> <img src="{% static 'pims/trash.svg' %}" alt='delete icon'/> </a></td>
     </tr>

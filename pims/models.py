@@ -1,17 +1,29 @@
 from django.db import models
 from django.utils.text import slugify
+from django.urls import reverse
+from django.utils import timezone
 
 # Create your models here.
 
 class season(models.Model):
     name = models.CharField(max_length=40)
+    slug = models.SlugField(max_length=25,null=True)
     def __str__(self):
         return(self.name)
+
+    def save(self, *args, **kwargs):
+        self.name.title()
+        self.slug = slugify(self.name)
+        super(season, self).save(*args, **kwargs)
+
+    def get_absolute_url(self):
+        return reverse("season", kwargs={"slug": self.slug})
+    
 
 
 class item(models.Model):
     name = models.CharField(max_length=40)
-    # slug = models.SlugField()
+    slug = models.SlugField(max_length=25, null=True)
 
     def __str__(self):
         return(self.name)
@@ -21,14 +33,13 @@ class item(models.Model):
 
     def save(self, *args, **kwargs):
         self.name.title()
+        if not self.slug:
+            self.slug = slugify(self.name)
         super(item, self).save(*args, **kwargs)
 
-    
+    def get_absolute_url(self):
+        return reverse("itemDetail", kwargs={"slug": self.slug})
 
-
-    # def save(self, *args, **kwargs):
-    #     self.slug = slugify(self.name)
-    #     super(item, self).save(*args, **kwargs)
 
 class container(models.Model):
     is_partial_choices = [
@@ -42,7 +53,7 @@ class container(models.Model):
     season = models.ManyToManyField(season, blank=True)
     is_partial = models.CharField(max_length=1,choices=is_partial_choices, blank=True, default='N')
     items = models.ManyToManyField(item, through='item_container')
-    # slug = models.SlugField()
+    slug = models.SlugField(max_length=25, null=True)
     
     def __str__(self):
         return f"{self.location}-{self.row_letter}-{self.column_number}"
@@ -50,10 +61,16 @@ class container(models.Model):
     def save(self, *args, **kwargs):
         self.location = self.location.title()
         self.row_letter = self.row_letter.upper()
+        if not self.slug: 
+            self.slug = slugify(self.__str__)
         super(container, self).save(*args, **kwargs)
     
     class Meta:
-        ordering = ['location', 'row_letter', 'column_number']
+        ordering = ['location']
+
+    def get_absolute_url(self):
+        return reverse("contents", kwargs={"slug": self.slug})
+
 
 
 class item_container(models.Model):

@@ -30,8 +30,8 @@ class itemDetail(generic.ListView):
     model = item
     context_object_name = 'results'
     def get_queryset(self):
-        results = item.objects.get(id=self.kwargs['pk']).item_container_set.all()
-        total = item.objects.get(id=self.kwargs['pk']).item_container_set.all().aggregate(total=sum('quantity'))
+        results = item.objects.get(**self.kwargs).item_container_set.all()
+        total = results.aggregate(total=sum('quantity'))
         return  {'results': results, 'total':total}
 
 #http://localhost:8000/pims/editItem/#/
@@ -72,7 +72,7 @@ class containerList(generic.ListView):
     model = container
     context_object_name = 'container'
     def get_queryset(self):
-        return container.objects.all().order_by('location', 'row_letter','column_number')
+        return container.objects.all().order_by('location').order_by('column_number').order_by('row_letter')
 
 # http://localhost:8000/pims/contents/#/
 class contents(generic.ListView):
@@ -163,6 +163,18 @@ class ICDetails(generic.DetailView):
     model = item_container
     template_name = "pims/" 
 
+class season(generic.ListView):
+    model = container
+    template_name = 'pims/season.html'
+    context_object_name = 'season'
+    def get_queryset(self):
+        if "pk" in self.kwargs :
+            result =  container.objects.filter(season__id=self.kwargs['pk']) 
+        elif "slug" in self.kwargs:
+            result =  container.objects.filter(season__slug=self.kwargs['slug'])
+        return result
+        
+
 
 # * Above views are working as desired
 
@@ -171,18 +183,28 @@ What if a location was able to have multiple containers in it. Need to create ne
 '''
 
 
-#TODO
-class season(generic.ListView):
-    model = season
-    template_name = 'pims/season.html'
-    context_object_name = 'season'
+class locations(generic.ListView):
+    model = container
+    template_name = "pims/location.html"
+    context_object_name = 'container'
     def get_queryset(self):
-        newSeason = season.objects.get(id=self.kwargs['pk'])
-        return newSeason.container.all()
-    # def get_context_data(self, **kwargs):
-    #     context = super().get_context_data(**kwargs)
-    #     context['item'] = item.objects.all()
-    #     return context    
+        result = container.objects.values('location').distinct()
+        return result
+
+
+
+
+
+
+
+
+
+
+
+
+#TODO
+
+
 
 
 

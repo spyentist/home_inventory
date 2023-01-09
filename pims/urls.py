@@ -12,8 +12,10 @@ urlpatterns = [
     path('editItem/<int:pk>/', views.editItem.as_view(), name='editItem'),
     path('addItem/', views.addItem.as_view(), name='addItem'),
     path('itemDetails/<int:pk>/', views.itemDetail.as_view(), name='itemDetails'),
+    path('itemDetails/<slug:slug>/', views.itemDetail.as_view(), name='itemDetail'),
     path('deleteItem/<int:pk>/', views.deleteitem.as_view(), name='deleteItem'),
 
+    path('locations/', views.locations.as_view(), name='locations'),
     path('allContainers/', views.containerList.as_view(), name='container_list'),
     path('deleteContainer/<int:pk>/', views.deleteContainer.as_view(), name='deleteContainer'),
     path('editContainer/<int:pk>/', views.editContainer.as_view(), name='editContainer'),
@@ -30,6 +32,7 @@ urlpatterns = [
 
 
     path('season/<int:pk>/', views.season.as_view(), name='season'),
+    path('season/<slug:slug>/', views.season.as_view(), name='season'),
     # Extra pages, to be removed in future
     path('test/', views.test.as_view(), name='test'),
     path('styleGuide/', views.styleGuide.as_view(), name='styleGuide'),

@@ -5,14 +5,14 @@
 
 {% block main %}
 <span class='icon_group'>
-    <div class="sub_icons"><a href ="{% url 'pims:season' 4 %}"><img src="{% static 'pims/Spring.svg' %}" alt="Spring Icon"/></a></div>
-    <div class="sub_icons"><img src="{% static 'pims/Summer.svg' 5 %}" alt="Summmer Icon"/></div>
-    <div class="sub_icons"><img src="{% static 'pims/Fall.svg' 6 %}" alt="Fall Icon"/></div>
-    <div class="sub_icons"><img src="{% static 'pims/Winter.svg' 7 %}" alt="Winter Icon"/></div>
+    <div class="sub_icons"><a href ="{% url 'pims:season' "spring" %}"><img src="{% static 'pims/Spring.svg' %}" alt="Spring Icon"/></a></div>
+    <div class="sub_icons"><a href ="{% url 'pims:season' "summer" %}"><img src="{% static 'pims/Summer.svg' 5 %}" alt="Summmer Icon"/></a></div>
+    <div class="sub_icons"><a href ="{% url 'pims:season' "fall" %}"><img src="{% static 'pims/Fall.svg' 6 %}" alt="Fall Icon"/></a></div>
+    <div class="sub_icons"><a href ="{% url 'pims:season' "winter" %}"><img src="{% static 'pims/Winter.svg' 7 %}" alt="Winter Icon"/></a></div>
     <div class="sub_icons" style="display: none;"></div>
-    <div class="sub_icons"><img src="{% static 'pims/Home Goods.svg' %}" alt="Home Goods Icon"/></div>
-    <div class="sub_icons"><img src="{% static 'pims/Toiletries.svg' %}" alt="Cleaning Supplies Icon"/></div>
-    <div class="sub_icons"><img src="{% static 'pims/Baby/Baby Blank.svg' %}" alt="Baby  Icon"/></div>
-    <div class="sub_icons"><img src="{% static 'pims/Toilet Paper.svg' %}" alt="Toiletries  "/></div>
+    <div class="sub_icons"><a href ="{% url 'pims:season' 4 %}"><img src="{% static 'pims/Home Goods.svg' %}" alt="Home Goods Icon"/></a></div>
+    <div class="sub_icons"><a href ="{% url 'pims:season' 4 %}"><img src="{% static 'pims/Toiletries.svg' %}" alt="Cleaning Supplies Icon"/></a></div>
+    <div class="sub_icons"><a href ="{% url 'pims:season' 4 %}"><img src="{% static 'pims/Baby/Baby Blank.svg' %}" alt="Baby  Icon"/></a></div>
+    <div class="sub_icons"><a href ="{% url 'pims:season' 4 %}"><img src="{% static 'pims/Toilet Paper.svg' %}" alt="Toiletries  "/></a></div>
 </span>
 {% endblock %}
